@@ -262,15 +262,14 @@ Each quarterly tranche is payable following delivery of the corresponding mainte
 
 | # | Adoption Milestone | Payment Each | Cap | Maximum | Evidence required |
 |---|---|---|---|---|---|
-| 1a | Adoption on pilot tier | 60,000 CC | 3 | 180,000 CC | Dependency proof resolving to a package identity in the published package manifest, plus the DAR hash. A runner adoption report covering the qualifying window, listing execution counts, rejections, revocations, package identities in use, and the operator party identifier. The adopter's written confirmation to the Committee. |
-| 1b | Qualified adopter, production tier | 150,000 CC | 3 | 450,000 CC | As for row 1a. |
+| 1a | Adoption on pilot tier | 50,000 CC | 3 | 150,000 CC | Dependency proof resolving to a package identity in the published package manifest, plus the DAR hash. A runner adoption report covering the qualifying window, listing execution counts, rejections, revocations, package identities in use, and the operator party identifier. The adopter's written confirmation to the Committee. |
+| 1b | Qualified adopter, production tier | 100,000 CC | 3 | 300,000 CC | As for row 1a. |
 | 2 | Independent conformance: a third party adapter or an independently implemented runner passes the published conformance test kit | 50,000 CC | 2 | 100,000 CC | Machine readable conformance kit output recording kit version, package identities under test, and per case results, together with a public continuous integration run the Committee can reproduce. |
 | 3 | Downstream specification reuse: a published CIP, standard, or Foundation funded reference authored by another team normatively references the authorization interface | 100,000 CC | 1 | 100,000 CC | The published document, with the normative reference identified. |
-| 4a | CIP assigned a number and accepted as Draft in the Canton Foundation CIP repository | 100,000 CC | 1 (one time only) | 100,000 CC | Public state of the Canton Foundation CIP repository. |
-| 4b | CIP merged | 200,000 CC | 1 (one time only) | 200,000 CC | Public state of the Canton Foundation CIP repository. |
+| 4a | CIP assigned a number and accepted as Draft in the Canton Foundation CIP repository | 50,000 CC | 1 (one time only) | 50,000 CC | Public state of the Canton Foundation CIP repository. |
+| 4b | CIP merged | 100,000 CC | 1 (one time only) | 100,000 CC | Public state of the Canton Foundation CIP repository. |
 | | **Aggregate cap across all adoption milestones** | | | **800,000 CC** | |
 
-Total adoption based funding is capped at **800,000 CC** in aggregate regardless of the sum of the individual row maxima. The rows therefore draw on a single pool rather than accumulating independently.
 
 **Disclosure of rows 1a and 1b evidence.** The adopter provides this evidence either publicly with the adopter's consent, or privately to the Canton Foundation under confidentiality. In the confidential case, the Foundation confirms qualification to the Committee.
 
