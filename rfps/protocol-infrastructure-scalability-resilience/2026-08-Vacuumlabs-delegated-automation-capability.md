@@ -162,6 +162,7 @@ Existing applications can integrate with the authorization layer by implementing
 - Collect documented feedback from those evaluations covering the authorization model, adapter integration boundary, visibility requirements, and operational usability.
 - Incorporate applicable evaluation findings into the implementation, documentation, and specification, with dispositions recorded for feedback not incorporated.
 **Ecosystem value:** Provides independent evidence that Canton builders can evaluate the authorization and automation model against real application workflows without requiring them to complete an application integration as a condition of this grant.
+**Adoption Gate:** 200,000 CC, gated on 2 of 3 organizations qualifying at Pilot Tier (row 1a, 50,000 CC each) plus 2 independent conformance kit runs (row 2, 50,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones). Deadline: 6 months from the beginning of Milestone 2. If only partly met, the Foundation pays only for the adoption events met and not the milestone.
 
 ### Milestone 3: Security Review & Standards Candidate
 **Estimated Delivery:** 10 weeks after Milestone 1 acceptance, plus independent security review and remediation if needed. Begins in parallel with Milestone 2 and completes after Milestone 2 findings are incorporated.
@@ -177,6 +178,7 @@ Existing applications can integrate with the authorization layer by implementing
 - Address reasonable CIP editor, SIG, and community technical feedback received during the funded project period.
 - Independent security review: The reviewer or firm and the review scope must be approved by the Committee. The external review cost will be paid separately against a Committee approved quote once the implementation scope is stable. The review will cover the Daml authorization package, reference adapters, runner authority and credential model, replay and concurrency handling, visibility assumptions, revocation races, and operational failure modes.
 **Ecosystem value:** Converts implementation, TestNet, and external evaluation evidence into an independently reviewed, reusable standards candidate that the Canton ecosystem can evaluate for broader adoption.
+**Adoption Gate:** 200,000 CC, gated on 2 of 3 organizations qualifying at Production Tier (row 1b, 100,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones). Deadline: 6 months from the beginning of Milestone 3. If only partly met, the Foundation pays only for the adoption events met and not the milestone.
 
 ### Milestone 4: Maintenance and Compatibility Support
 **Estimated Delivery:** Begins at Milestone 3 acceptance, covers the following 12 months
@@ -221,7 +223,27 @@ Project-specific acceptance conditions are:
 
 840,000 CC (Development work) + 200,000 CC (Maintenance) + upto 800,000 CC for adoption based milestone.
 
-The funding request covers implementation, TestNet validation, external evaluation, security review preparation and remediation, standards work, and 12 months of maintenance and compatibility support.
+The funding breakdown is as follows:
+
+| Milestone | Timeline | Amount (in CC) | Adoption Gates | Adoption Gate Amount (in CC)* | Adoption Gate Deadline |
+|---|---|---|---|---|---|
+| M1 (Technical Delivery) | Weeks 1–9 | 620,000 (**33.7%**) | N/A | N/A | N/A |
+| M2 (Testnet Validation & Adoption) | Weeks 10–14 | 100,000 (**5.4%**) | 2/3 orgs on Pilot Tier, 2 Conformance kit runs | 200,000 (**10.9%**) | 6 Months from beginning of M2 |
+| M3 (Security Review, Production release, CIP review) | Weeks 10–19 | 120,000 (**6.5%**) | 2/3 orgs on Production Tier | 200,000 (**10.9%**) | 6 Months from beginning of M3  |
+| M4 (Maintenance) | Months 1–12 after M3 acceptance | 200,000 (**10.9%**) | N/A | N/A | N/A |
+| Remaining adoption upside (ungated)** | Anytime within claim window (12 months from beginning of M3) | N/A | 3rd Pilot org, 3rd Production org, independent conformance beyond gate, downstream spec reuse, CIP Draft, CIP Merged | up to 400,000 (**21.7%**) | Per Adoption Based Milestones table |
+| **Total** | 19 weeks implementation + 12 months maintenance | **1,040,000 (56.5%)** | | **up to 800,000 (43.5%)** | |
+
+**Grand Total (Technical Delivery + Maintenance + Adoption): 1,840,000 CC (100%)**
+
+\* Gate amounts come from the [Adoption Based Milestones table](#adoption-based-milestones) below. The M2 gate is 200,000 CC: 2 Pilot-tier orgs × 50,000 CC (row 1a) plus 2 Conformance kit runs × 50,000 CC (row 2). The M3 gate is 200,000 CC: 2 Production-tier orgs × 100,000 CC (row 1b).
+
+\*\* The remaining 400,000 CC of the 800,000 CC adoption cap covers 1 further Pilot org, 1 further Production org, downstream spec reuse, CIP Draft, and CIP Merged. This amount does not need a milestone gate. Vacuumlabs can claim it at any point in the claim window.
+
+The [Adoption Milestones](#adoption-based-milestones) cover 3 orgs on Pilot Tier and 3 orgs on Production Tier. The Adoption Gate on M2 and M3 lets Vacuumlabs continue work on the next milestones, based on initial proof of adoption. Passing the Adoption Gate is required to complete each milestone.
+
+If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone.
+
 The independent security review cost is not included in the amount above. The reviewer, review scope, and actual quote will be submitted to the Committee for approval once the implementation scope is stable.
 ### Payment Breakdown by Milestone
 #### Milestone 1: Architecture Validation, Authorization Package, and Reference Runner
@@ -246,15 +268,15 @@ Each quarterly tranche is payable following delivery of the corresponding mainte
 
 ### Adoption Based Milestones
 
-| # | Adoption Milestone | Payment Each | Cap | Maximum | Evidence required |
-|---|---|---|---|---|---|
-| 1a | Adoption on pilot tier | 50,000 CC | 3 | 150,000 CC | Dependency proof resolving to a package identity in the published package manifest, plus the DAR hash. A runner adoption report covering the qualifying window, listing execution counts, rejections, revocations, package identities in use, and the operator party identifier. The adopter's written confirmation to the Committee. |
-| 1b | Qualified adopter, production tier | 100,000 CC | 3 | 300,000 CC | As for row 1a. |
-| 2 | Independent conformance: a third party adapter or an independently implemented runner passes the published conformance test kit | 50,000 CC | 2 | 100,000 CC | Machine readable conformance kit output recording kit version, package identities under test, and per case results, together with a public continuous integration run the Committee can reproduce. |
-| 3 | Downstream specification reuse: a published CIP, standard, or Foundation funded reference authored by another team normatively references the authorization interface | 100,000 CC | 1 | 100,000 CC | The published document, with the normative reference identified. |
-| 4a | CIP assigned a number and accepted as Draft in the Canton Foundation CIP repository | 50,000 CC | 1 (one time only) | 50,000 CC | Public state of the Canton Foundation CIP repository. |
-| 4b | CIP merged | 100,000 CC | 1 (one time only) | 100,000 CC | Public state of the Canton Foundation CIP repository. |
-| | **Aggregate cap across all adoption milestones** | | | **800,000 CC** | |
+| # | Adoption Milestone | Payment Each | Cap | Maximum | Evidence required | Deadline |
+|---|---|---|---|---|---|---|
+| 1a | Adoption on pilot tier | 50,000 CC | 3 | 150,000 CC | Dependency proof resolving to a package identity in the published package manifest, plus the DAR hash. A runner adoption report covering the qualifying window, listing execution counts, rejections, revocations, package identities in use, and the operator party identifier. The adopter's written confirmation to the Committee. | 2 of 3: 6 months from beginning of M2. Remaining 1: 12 months from beginning of M3. |
+| 1b | Qualified adopter, production tier | 100,000 CC | 3 | 300,000 CC | As for row 1a. | 2 of 3: 6 months from beginning of M3. Remaining 1: 12 months from beginning of M3. |
+| 2 | Independent conformance: a third party adapter or an independently implemented runner passes the published conformance test kit | 50,000 CC | 2 | 100,000 CC | Machine readable conformance kit output recording kit version, package identities under test, and per case results, together with a public continuous integration run the Committee can reproduce. | 6 months from beginning of M2. |
+| 3 | Downstream specification reuse: a published CIP, standard, or Foundation funded reference authored by another team normatively references the authorization interface | 100,000 CC | 1 | 100,000 CC | The published document, with the normative reference identified. | 12 months from beginning of M3. |
+| 4a | CIP assigned a number and accepted as Draft in the Canton Foundation CIP repository | 50,000 CC | 1 (one time only) | 50,000 CC | Public state of the Canton Foundation CIP repository. | 12 months from beginning of M3. |
+| 4b | CIP merged | 100,000 CC | 1 (one time only) | 100,000 CC | Public state of the Canton Foundation CIP repository. | 12 months from beginning of M3. |
+| | **Aggregate cap across all adoption milestones** | | | **800,000 CC** | | |
 
 
 **Disclosure of rows 1a and 1b evidence.** The adopter provides this evidence either publicly with the adopter's consent, or privately to the Canton Foundation under confidentiality. In the confidential case, the Foundation confirms qualification to the Committee.
@@ -263,12 +285,12 @@ Each quarterly tranche is payable following delivery of the corresponding mainte
 
 A qualified adopter is an organization, other than Vacuumlabs and our affiliates, that has:
 
-1. an adapter template implementing the published Authorization interface, with the dependency resolving to a package identity listed in the project's published package manifest;
-2. a deployment executing that adapter through a runner acting as an operator party distinct from any principal party;
-3. at least 20 successful Execute transactions across at least 7 consecutive days, including at least one attempt rejected by an on ledger authorization constraint or at least one principal initiated revocation; and
+1. an adapter template implementing the published Authorization interface, with the dependency resolving to a package identity listed in the project's published package manifest.
+2. a deployment executing that adapter through a runner acting as an operator party distinct from any principal party.
+3. at least 20 successful Execute transactions across at least 3 consecutive days, including at least one attempt rejected by an on ledger authorization constraint or at least one principal initiated revocation
 4. written confirmation from a named technical contact at the adopting organization, addressed to the Tech & Ops Committee.
 
-**Tiers.** Pilot tier means TestNet, or a production environment restricted to users internal to the adopting organization. Production tier means Mainnet, or a production environment serving users external to the adopting organization. A pilot that reaches production tier within the claim window tops up to the production amount, with the pilot payment already made deducted. The same organization is credited once, capped at the production amount.
+**Tiers.** Pilot tier means TestNet, or a production environment restricted to users internal to the adopting organization. Production tier means Mainnet, or a production environment serving users external to the adopting organization.
 
 **Does not qualify.** Letters of intent, memoranda of understanding, and stated plans to adopt. Forks or clones with no operating deployment. Evaluation only engagement, which is funded under Milestone 2 and cannot be claimed again here. Use by the implementing entity or its affiliates.
 
