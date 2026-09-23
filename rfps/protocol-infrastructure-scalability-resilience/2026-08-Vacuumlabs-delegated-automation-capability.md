@@ -323,26 +323,39 @@ The public value is not a hosted automation business. It is a reusable security 
 There is no reliable public census from which to claim a percentage of Canton applications that require automation. This proposal therefore avoids an unsupported market share estimate and uses verifiable TestNet operation and independent external evaluation instead. The funded target is a sustained reference TestNet deployment evaluated by at least two independent Canton application teams or ecosystem builders, together with a public package that additional teams can evaluate without one off implementation support.
 ## Rationale
 This proposal operates at a different abstraction layer from application-specific automation standards such as deferred settlement. It standardizes bounded delegation and execution of typed application actions, rather than defining the business semantics of a particular workflow such as token transfer, vesting, escrow, or settlement. Such application-specific standards could use the authorization and runner pattern defined here where appropriate.
-Why typed authorization adapters
+
+##### Why typed authorization adapters
 Daml choices and their arguments are statically typed. A safe general layer cannot discover an arbitrary contract, accept a text method name, and invoke an unknown choice on behalf of a user. Existing applications also have distinct authority, visibility, and business constraints.
 A small typed adapter is therefore the minimum honest integration boundary. It lets the application define exactly which action is automatable while the shared package standardizes expiry, revocation, counts, intervals, operator identity, observability, and runner behavior.
-Why the operator does not impersonate the principal
+##### Why the operator does not impersonate the principal
+
 Giving a hosted runner the principal's signing rights would solve scheduling by increasing custody risk. The proposed model keeps the operator as a separate party. The principal grants only the authority represented by the active authorization contract, and the application contract still enforces all other required parties and business rules.
-Why constraints are on ledger
+##### Why constraints are on ledger
 A cron database can be corrupted, misconfigured, or operated by an attacker. Limits that exist only off ledger cannot protect the principal. The authorization contract is therefore the source of truth, and the runner is treated as potentially faulty or compromised within the bounded authority granted to it.
-Why one operator per grant
+##### Why one operator per grant
 A multi operator permissionless network introduces duplicate execution, fee competition, failover, privacy, service discovery, and reward allocation problems. One operator per grant is enough to validate the application and authorization model. Operator replacement can be handled through revoke and recreate.
-Why operator economics are out of scope
+##### Why operator economics are out of scope
 There is no evidence yet for average job cost, failure rate, required redundancy, expected Canton traffic, or user willingness to pay. Introducing a reward design would add economic and governance complexity without helping prove the delegated authorization model.
-Why the standard follows external evaluation
+##### Why the standard follows external evaluation
 A design pattern should become a standard only after its assumptions have been tested against distinct external application contexts. The project therefore produces a standards candidate, subjects the implementation to independent evaluation by Canton application teams and ecosystem builders, and asks the SIGs whether the resulting evidence warrants a CIP. This avoids standardizing the first implementation's assumptions prematurely.
 Alternatives considered
-Application specific delegation only: feasible, but it preserves duplicated security and operations work.
-Backend with principal credentials: operationally simple, but incompatible with the least privilege objective.
-Protocol level generic automation: broader than needed and not justified before the application level architecture has been validated in practice.
-Validator sidecar: unnecessarily couples application automation to validator operations and rewards.
-Permissionless keeper market: adds economic and privacy complexity before the core authorization abstraction is proven.
-External relayer only: submits transactions but does not define the Daml authority, constraints, revocation, and typed app integration required here.
+
+##### Application specific delegation only
+Feasible, but it preserves duplicated security and operations work.
+
+##### Backend with principal credentials
+Operationally simple, but incompatible with the least privilege objective.
+
+##### Protocol level generic automation
+Broader than needed and not justified before the application level architecture has been validated in practice.
+##### Validator sidecar
+Unnecessarily couples application automation to validator operations and rewards.
+
+##### Permissionless keeper market
+Adds economic and privacy complexity before the core authorization abstraction is proven.
+
+##### External relayer only 
+Submits transactions but does not define the Daml authority, constraints, revocation, and typed app integration required here.
 ## Maintenance and ownership
 The implementing entity will maintain the repository through public issues and releases during delivery and throughout Milestone 4. Maintenance covers security vulnerabilities, critical defects, and compatibility issues affecting the documented supported Canton and Daml versions. The package will use semantic versioning and maintain a supported version compatibility matrix.
 At Milestone 3 acceptance, the project will publish an ownership and continuity note covering maintainer access, release credentials, vulnerability reporting, and the option to transfer the repository to a neutral organization if the original team cannot continue.
