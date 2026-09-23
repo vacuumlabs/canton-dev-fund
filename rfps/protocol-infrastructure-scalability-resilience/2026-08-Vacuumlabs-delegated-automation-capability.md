@@ -231,18 +231,19 @@ The funding breakdown is as follows:
 | M2 (Testnet Validation & Adoption) | Weeks 10–14 | 100,000 (**5.4%**) | 2/3 orgs on Pilot Tier, 2 Conformance kit runs | 200,000 (**10.9%**) | 6 Months from beginning of M2 |
 | M3 (Security Review, Production release, CIP review) | Weeks 10–19 | 120,000 (**6.5%**) | 2/3 orgs on Production Tier | 200,000 (**10.9%**) | 6 Months from beginning of M3  |
 | M4 (Maintenance) | Months 1–12 after M3 acceptance | 200,000 (**10.9%**) | N/A | N/A | N/A |
-| Remaining adoption upside (ungated)** | Anytime within claim window (12 months from beginning of M3) | N/A | 3rd Pilot org, 3rd Production org, independent conformance beyond gate, downstream spec reuse, CIP Draft, CIP Merged | up to 400,000 (**21.7%**) | Per Adoption Based Milestones table |
+| Remaining adoption upside (ungated)** | Anytime within claim window (12 months from beginning of M3) | N/A | 3rd Pilot org, 3rd Production org, downstream spec reuse, CIP Draft, CIP Merged | up to 400,000 (**21.7%**) | Per Adoption Based Milestones table |
 | **Total** | 19 weeks implementation + 12 months maintenance | **1,040,000 (56.5%)** | | **up to 800,000 (43.5%)** | |
 
 **Grand Total (Technical Delivery + Maintenance + Adoption): 1,840,000 CC (100%)**
 
 \* Gate amounts come from the [Adoption Based Milestones table](#adoption-based-milestones) below. The M2 gate is 200,000 CC: 2 Pilot-tier orgs × 50,000 CC (row 1a) plus 2 Conformance kit runs × 50,000 CC (row 2). The M3 gate is 200,000 CC: 2 Production-tier orgs × 100,000 CC (row 1b).
 
-\*\* The remaining 400,000 CC of the 800,000 CC adoption cap covers 1 further Pilot org, 1 further Production org, downstream spec reuse, CIP Draft, and CIP Merged. This amount does not need a milestone gate. Vacuumlabs can claim it at any point in the claim window.
+\*\* The remaining 400,000 CC of the 800,000 CC adoption cap covers 1 further Pilot org, 1 further Production org, downstream spec reuse, CIP Draft, and CIP Merged. Vacuumlabs can claim it at any point in the claim window.
 
 The [Adoption Milestones](#adoption-based-milestones) cover 3 orgs on Pilot Tier and 3 orgs on Production Tier. The Adoption Gate on M2 and M3 lets Vacuumlabs continue work on the next milestones, based on initial proof of adoption. Passing the Adoption Gate is required to complete each milestone.
 
-If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone.
+If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone. **M2 and M3 will be paid out only when their respective adoption gates are fully met.**
+
 
 The independent security review cost is not included in the amount above. The reviewer, review scope, and actual quote will be submitted to the Committee for approval once the implementation scope is stable.
 ### Payment Breakdown by Milestone
@@ -252,9 +253,11 @@ Payment upon Committee acceptance of the Milestone 1 deliverables, including the
 #### Milestone 2: TestNet Validation and Independent Evaluation
 **Funding:** 100,000 CC
 Payment upon Committee acceptance of the TestNet validation evidence, external technical evaluations, and documented dispositions of evaluation feedback.
+**Adoption Gate:** 200,000 CC, gated on 2 of 3 organizations qualifying at Pilot Tier (row 1a, 50,000 CC each) plus 2 independent conformance kit runs (row 2, 50,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones). Deadline: 6 months from the beginning of Milestone 2.
 #### Milestone 3: Security Review and Standards Candidate
 **Funding:** 120,000 CC
 Payment upon Committee acceptance of the Milestone 3 deliverables, including remediation of review findings, final security and operational documentation, standards candidate presentation, and CIP submission if supported by the relevant SIGs and champion.
+**Adoption Gate:** 200,000 CC, gated on 2 of 3 organizations qualifying at Production Tier (row 1b, 100,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones). Deadline: 6 months from the beginning of Milestone 3.
 **Independent security review funding:** separate Committee approved quote.
 #### Milestone 4: Maintenance and Compatibility Support
 **Total Funding:** 200,000 CC
@@ -267,6 +270,8 @@ The Milestone 4 funding will be paid in four quarterly tranches during the 12 mo
 Each quarterly tranche is payable following delivery of the corresponding maintenance report and completion of the maintenance obligations for that period. The final tranche also requires delivery of the end of maintenance report.
 
 ### Adoption Based Milestones
+
+A detailed breakdown on how we have priced the adoption milestones.
 
 | # | Adoption Milestone | Payment Each | Cap | Maximum | Evidence required | Deadline |
 |---|---|---|---|---|---|---|
