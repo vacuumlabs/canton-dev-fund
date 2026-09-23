@@ -26,7 +26,7 @@ The intended outcome is a shared authorization and runner pattern that applicati
 ### 2. Implementation Mechanics
 #### 2.1 Daml Authorization package
 
-The project will publish a Daml Package for the Authorization interface and supporting interfaces for authorization scope, triggers, and request payloads, finalized by the end of Milestone 2.
+The project will publish a Daml Package for the Authorization interface and supporting interfaces for authorization scope, triggers, and request payloads.
 
 Each app specific authorization template that implements the interface will expose a common view containing at least:
 - Principal party
@@ -130,38 +130,28 @@ The [Decentralization Manager](https://github.com/canton-foundation/canton-dev-f
 Existing applications can integrate with the authorization layer by implementing a compatible authorization adapter or interface for the actions they choose to make automatable. Existing application authorization requirements remain authoritative.
 
 ## Milestones and Deliverables
-### Milestone 1: Architecture Validation and Threat Model
-**Estimated Delivery:** 3 weeks from project start
-**Focus:** Validate the authorization, authority, visibility, concurrency, recovery, and integration architecture before full implementation.
+### Milestone 1: Architecture Validation, Authorization Package, and Reference Runner
+**Estimated Delivery:** 9 weeks from project start
+**Focus:** Validate the authorization, authority, visibility, concurrency, recovery, and integration architecture, and deliver the final reusable authorization package, reference runner, conformance suite, and integration documentation.
 **Deliverables / Value Metrics:**
 - Public Apache 2.0 repository with a reproducible Canton local environment.
-- Contracts - Reusable interfaces and models for Authorization entrypoint, Authorization grant specific templates, payloads for function Execution
+- Versioned Daml package containing the common authorization interfaces and utilities, together with three reference adapter implementations, code comments, and developer documentation.
 - Positive tests proving execution, revocation, expiry, execution count, interval, and amount limits.
 - Negative tests for wrong operator, expired grant, revoked grant, excessive amount, exhausted count, stale contract identifier, unavailable target visibility, and two concurrent attempts.
-- TypeScript runner spike that uses actAs for the operator only.
-- Architecture decision record comparing per action grants, a broader session contract, and app specific delegation.
-- Initial threat model and privacy data flow.
-- Public architecture validation report documenting the validated authorization path, visibility model, concurrency behavior, operator recovery approach, integration boundary, and any design refinements identified during the milestone.
-- Reference dashboard prototype supporting party login, active authorization grant details, principal controlled revocation, and historical execution viewing.
-**Ecosystem value:** Validates the core architecture and security boundaries before full implementation, while publishing reusable threat analysis, design decisions, and architecture evidence that other Canton teams can evaluate independently.
-
-### Milestone 2: Open Source Authorization Package and Reference Runner
-**Estimated Delivery:** 6 weeks after Milestone 1 acceptance
-**Focus:** Deliver the reusable package, runner, conformance suite, and integration documentation.
-**Deliverables / Value Metrics:**
-- Versioned Daml package containing the common authorization interfaces and utilities, together with three reference adapter implementations, code comments, and developer documentation.
+- Adapter conformance test kit covering authorization, visibility, time, count, value limits, revocation, replay, and stale state.
 - TypeScript reference runner with cron and ledger visible triggers, SQLite job storage, retries, deduplication, randomized backoff, metrics, and operator runbook.
 - Documented storage abstraction for alternative runner persistence implementations.
-- Adapter conformance test kit covering authorization, visibility, time, count, value limits, revocation, replay, and stale state.
 - Reproducible local and TestNet deployment instructions.
 - Integration guide showing how an existing application adds one typed adapter without granting principal Ledger API rights to the runner.
-- Draft normative specification and versioning policy.
+- Threat model and privacy data flow.
+- Public architecture validation report documenting the validated authorization path, visibility model, concurrency behavior, operator recovery approach, integration boundary, and any design refinements identified during the milestone.
+- Normative specification and versioning policy.
 - Public walkthrough for Canton application developers.
-- Reference dashboard refinement and backend integration.
-**Ecosystem value:** Provides Canton application teams with an open-source, reusable authorization package, reference runner, conformance suite, and integration guidance that reduce the effort and security risk of adding bounded automation without granting principal Ledger API rights to an off-ledger operator.
+- Reference dashboard supporting party login, active authorization grant details, principal controlled revocation, historical execution viewing, and backend integration.
+**Ecosystem value:** Validates the core architecture and security boundaries and provides Canton application teams with an open-source, reusable authorization package, reference runner, conformance suite, and integration guidance that reduce the effort and security risk of adding bounded automation without granting principal Ledger API rights to an off-ledger operator.
 
-### Milestone 3: TestNet Validation and Independent Evaluation
-**Estimated Delivery:** 5 weeks after Milestone 2 acceptance. Runs in parallel with Milestone 4.
+### Milestone 2: TestNet Validation and Independent Evaluation
+**Estimated Delivery:** 5 weeks after Milestone 1 acceptance. Runs in parallel with Milestone 3.
 **Focus:** Demonstrate sustained TestNet operation and validate the reference implementation with independent Canton application teams and ecosystem builders.
 **Deliverables / Value Metrics:**
 - Public TestNet deployment of the reference implementation.
@@ -173,8 +163,8 @@ Existing applications can integrate with the authorization layer by implementing
 - Incorporate applicable evaluation findings into the implementation, documentation, and specification, with dispositions recorded for feedback not incorporated.
 **Ecosystem value:** Provides independent evidence that Canton builders can evaluate the authorization and automation model against real application workflows without requiring them to complete an application integration as a condition of this grant.
 
-### Milestone 4: Security Review & Standards Candidate
-**Estimated Delivery:** 10 weeks after Milestone 2 acceptance, plus independent security review and remediation if needed. Begins in parallel with Milestone 3 and completes after Milestone 3 findings are incorporated.
+### Milestone 3: Security Review & Standards Candidate
+**Estimated Delivery:** 10 weeks after Milestone 1 acceptance, plus independent security review and remediation if needed. Begins in parallel with Milestone 2 and completes after Milestone 2 findings are incorporated.
 **Focus:** Independently validate and harden the security model and prepare the abstraction for ecosystem standardization.
 **Deliverables / Value Metrics:**
 - Prepare codebase, architecture, threat model, tests, and supporting material for independent review.
@@ -188,8 +178,8 @@ Existing applications can integrate with the authorization layer by implementing
 - Independent security review: The reviewer or firm and the review scope must be approved by the Committee. The external review cost will be paid separately against a Committee approved quote once the implementation scope is stable. The review will cover the Daml authorization package, reference adapters, runner authority and credential model, replay and concurrency handling, visibility assumptions, revocation races, and operational failure modes.
 **Ecosystem value:** Converts implementation, TestNet, and external evaluation evidence into an independently reviewed, reusable standards candidate that the Canton ecosystem can evaluate for broader adoption.
 
-### Milestone 5: Maintenance and Compatibility Support
-**Estimated Delivery:** Begins at Milestone 4 acceptance, covers the following 12 months
+### Milestone 4: Maintenance and Compatibility Support
+**Estimated Delivery:** Begins at Milestone 3 acceptance, covers the following 12 months
 **Focus:** Maintain the public reference implementation after delivery and preserve compatibility with the documented supported Canton and Daml versions.
 **Deliverables / Value Metrics:**
 - Maintain the public repository, issue tracker, release process, and vulnerability reporting channel throughout the maintenance period.
@@ -201,13 +191,12 @@ Existing applications can integrate with the authorization layer by implementing
 **Ecosystem value:** Provides a defined post delivery maintenance period so ecosystem users can evaluate and adopt the reference implementation without depending on an unmaintained grant artifact.
 
 ## Indicative Delivery Schedule
-- Weeks 1–3: Milestone 1
-- Weeks 4–9: Milestone 2
-- Weeks 10–14: Milestone 3
-- Weeks 10–19: Milestone 4, run in parallel with Milestone 3
-- Months 1–12 following Milestone 4 acceptance: Milestone 5
+- Weeks 1–9: Milestone 1
+- Weeks 10–14: Milestone 2
+- Weeks 10–19: Milestone 3, run in parallel with Milestone 2
+- Months 1–12 following Milestone 3 acceptance: Milestone 4
 The project therefore has an expected 19 week implementation schedule, excluding external evaluator availability, security review scheduling, remediation, and variable SIG or CIP feedback.
-Milestones 3 and 4 both begin after Milestone 2 acceptance and run concurrently, so the 19 week total reflects that overlap rather than the sum of the individual milestone durations.
+Milestones 2 and 3 both begin after Milestone 1 acceptance and run concurrently, so the 19 week total reflects that overlap rather than the sum of the individual milestone durations.
 ## Acceptance Criteria
 The Tech & Ops Committee will evaluate completion based on:
 - Deliverables completed as specified for each milestone.
@@ -225,7 +214,7 @@ Project-specific acceptance conditions are:
 - The independent security review has no unresolved Critical or High severity findings at final acceptance, unless explicitly accepted by the Committee.
 - Source code, tests, specification, documentation, and issue tracking are publicly available under Apache 2.0 or a Committee-approved equivalent.
 - The standards candidate is presented to the relevant Canton Foundation SIGs. If the SIGs and champion support CIP submission, the project team prepares and submits the initial CIP pull request.
-- Milestone 5 is accepted after completion of the 12 month maintenance period and delivery of the required quarterly maintenance reports, including the final month 12 report, provided the repository, supported version matrix, vulnerability reporting process, and in scope maintenance obligations have been maintained throughout the period.
+- Milestone 4 is accepted after completion of the 12 month maintenance period and delivery of the required quarterly maintenance reports, including the final month 12 report, provided the repository, supported version matrix, vulnerability reporting process, and in scope maintenance obligations have been maintained throughout the period.
 
 ## Funding
 **Total Funding Request:** 1,840,000 CC
@@ -235,22 +224,19 @@ Project-specific acceptance conditions are:
 The funding request covers implementation, TestNet validation, external evaluation, security review preparation and remediation, standards work, and 12 months of maintenance and compatibility support.
 The independent security review cost is not included in the amount above. The reviewer, review scope, and actual quote will be submitted to the Committee for approval once the implementation scope is stable.
 ### Payment Breakdown by Milestone
-#### Milestone 1: Architecture Validation and Threat Model
-**Funding:** 240,000 CC
-Payment upon Committee acceptance of the Milestone 1 deliverables and architecture validation report.
-#### Milestone 2: Open Source Authorization Package and Reference Runner
-**Funding:** 380,000 CC
-Payment upon Committee acceptance of the Milestone 2 implementation, tests, documentation, deployment instructions, and standards draft.
-#### Milestone 3: TestNet Validation and Independent Evaluation
+#### Milestone 1: Architecture Validation, Authorization Package, and Reference Runner
+**Funding:** 620,000 CC
+Payment upon Committee acceptance of the Milestone 1 deliverables, including the architecture validation report, the authorization package implementation, tests, conformance suite, documentation, deployment instructions, and standards draft.
+#### Milestone 2: TestNet Validation and Independent Evaluation
 **Funding:** 100,000 CC
 Payment upon Committee acceptance of the TestNet validation evidence, external technical evaluations, and documented dispositions of evaluation feedback.
-#### Milestone 4: Security Review and Standards Candidate
+#### Milestone 3: Security Review and Standards Candidate
 **Funding:** 120,000 CC
-Payment upon Committee acceptance of the Milestone 4 deliverables, including remediation of review findings, final security and operational documentation, standards candidate presentation, and CIP submission if supported by the relevant SIGs and champion.
+Payment upon Committee acceptance of the Milestone 3 deliverables, including remediation of review findings, final security and operational documentation, standards candidate presentation, and CIP submission if supported by the relevant SIGs and champion.
 **Independent security review funding:** separate Committee approved quote.
-#### Milestone 5: Maintenance and Compatibility Support
+#### Milestone 4: Maintenance and Compatibility Support
 **Total Funding:** 200,000 CC
-The Milestone 5 funding will be paid in four quarterly tranches during the 12 month maintenance period:
+The Milestone 4 funding will be paid in four quarterly tranches during the 12 month maintenance period:
 - Month 3 maintenance tranche: 50,000 CC
 - Month 6 maintenance tranche: 50,000 CC
 - Month 9 maintenance tranche: 50,000 CC
@@ -284,14 +270,14 @@ A qualified adopter is an organization, other than Vacuumlabs and our affiliates
 
 **Tiers.** Pilot tier means TestNet, or a production environment restricted to users internal to the adopting organization. Production tier means Mainnet, or a production environment serving users external to the adopting organization. A pilot that reaches production tier within the claim window tops up to the production amount, with the pilot payment already made deducted. The same organization is credited once, capped at the production amount.
 
-**Does not qualify.** Letters of intent, memoranda of understanding, and stated plans to adopt. Forks or clones with no operating deployment. Evaluation only engagement, which is funded under Milestone 3 and cannot be claimed again here. Use by the implementing entity or its affiliates.
+**Does not qualify.** Letters of intent, memoranda of understanding, and stated plans to adopt. Forks or clones with no operating deployment. Evaluation only engagement, which is funded under Milestone 2 and cannot be claimed again here. Use by the implementing entity or its affiliates.
 
 **Client work disclosure.** Where the implementing entity is engaged commercially by the adopting organization, the engagement is disclosed to the Committee at the time of claim and the adopter's confirmation is provided independently by the adopter. The Committee may decline a claim on this basis.
 
-The project will publish a package manifest at Milestone 2 recording, for each release, the package name, version, package identity, and DAR SHA-256. That manifest is the binding artifact for determining whether a claimed integration uses the published authorization package. Qualifying reuse includes any release in the published manifest lineage, so that adopters depending on the package by name across an upgrade lineage are not excluded.
+The project will publish a package manifest at Milestone 1 recording, for each release, the package name, version, package identity, and DAR SHA-256. That manifest is the binding artifact for determining whether a claimed integration uses the published authorization package. Qualifying reuse includes any release in the published manifest lineage, so that adopters depending on the package by name across an upgrade lineage are not excluded.
 
 ### Volatility Stipulation
-Because Milestone 5 extends beyond six months, unpaid Milestone 5 tranches scheduled more than six months after Milestone 4 acceptance may be renegotiated to account for significant USD/CC price volatility. The same applies to remaining milestone payments if the project timeline is extended beyond six months due to Committee requested scope changes.
+Because Milestone 4 extends beyond six months, unpaid Milestone 4 tranches scheduled more than six months after Milestone 3 acceptance may be renegotiated to account for significant USD/CC price volatility. The same applies to remaining milestone payments if the project timeline is extended beyond six months due to Committee requested scope changes.
 
 ## Co-Marketing
 Upon release, the implementing entity will collaborate with the Foundation on:
@@ -331,8 +317,8 @@ Validator sidecar: unnecessarily couples application automation to validator ope
 Permissionless keeper market: adds economic and privacy complexity before the core authorization abstraction is proven.
 External relayer only: submits transactions but does not define the Daml authority, constraints, revocation, and typed app integration required here.
 ## Maintenance and ownership
-The implementing entity will maintain the repository through public issues and releases during delivery and throughout Milestone 5. Maintenance covers security vulnerabilities, critical defects, and compatibility issues affecting the documented supported Canton and Daml versions. The package will use semantic versioning and maintain a supported version compatibility matrix.
-At Milestone 4 acceptance, the project will publish an ownership and continuity note covering maintainer access, release credentials, vulnerability reporting, and the option to transfer the repository to a neutral organization if the original team cannot continue.
+The implementing entity will maintain the repository through public issues and releases during delivery and throughout Milestone 4. Maintenance covers security vulnerabilities, critical defects, and compatibility issues affecting the documented supported Canton and Daml versions. The package will use semantic versioning and maintain a supported version compatibility matrix.
+At Milestone 3 acceptance, the project will publish an ownership and continuity note covering maintainer access, release credentials, vulnerability reporting, and the option to transfer the repository to a neutral organization if the original team cannot continue.
 ## References
 - [Development Fund proposal template](https://github.com/canton-foundation/canton-dev-fund/blob/main/proposals/_template.md)
 - [2026-2028 Splice and Canton Strategic Roadmap and 2026-2027 Requests for Proposals](https://github.com/canton-foundation/canton-dev-fund/blob/main/2026-2028-strategic-roadmap.md), RFP 2 Application Decentralization and RFP 25 Identity and Access Control
