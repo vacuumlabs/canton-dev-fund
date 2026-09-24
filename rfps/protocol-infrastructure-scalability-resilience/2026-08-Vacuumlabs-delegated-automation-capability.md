@@ -356,8 +356,12 @@ Adds economic and privacy complexity before the core authorization abstraction i
 ##### External relayer only 
 Submits transactions but does not define the Daml authority, constraints, revocation, and typed app integration required here.
 ## Maintenance and ownership
-The implementing entity will maintain the repository through public issues and releases during delivery and throughout Milestone 4. Maintenance covers security vulnerabilities, critical defects, and compatibility issues affecting the documented supported Canton and Daml versions. The package will use semantic versioning and maintain a supported version compatibility matrix.
-At Milestone 3 acceptance, the project will publish an ownership and continuity note covering maintainer access, release credentials, vulnerability reporting, and the option to transfer the repository to a neutral organization if the original team cannot continue.
+At Milestone 3 acceptance, the project will publish an ownership and continuity note covering maintainer access, release credentials, vulnerability reporting, and continuity procedures.
+
+Vacuumlabs will maintain the repository through public issues and releases during delivery and throughout Milestone 4. Maintenance covers security vulnerabilities, critical defects, and compatibility issues affecting the documented supported Canton and Daml versions. The package will use semantic versioning and maintain a supported version compatibility matrix.
+
+Vacuumlabs will remain the default repository steward after the funded maintenance period, including maintaining repository ownership, release provenance, and the vulnerability reporting channel, unless stewardship is transferred to a named successor. Ongoing feature development, compatibility work, or service level commitments beyond the funded maintenance period are not included in this grant.
+
 ## References
 - [Development Fund proposal template](https://github.com/canton-foundation/canton-dev-fund/blob/main/proposals/_template.md)
 - [2026-2028 Splice and Canton Strategic Roadmap and 2026-2027 Requests for Proposals](https://github.com/canton-foundation/canton-dev-fund/blob/main/2026-2028-strategic-roadmap.md), RFP 2 Application Decentralization and RFP 25 Identity and Access Control
