@@ -7,7 +7,7 @@
 - **RFP / Roadmap Area:** RFP 2 (Application Decentralization) and RFP 25 (Identity and Access Control)
 - **Label:** `dapp-integration`
 - **Champion:** Needs Champion
-- **Total Funding Request:** 1,840,000 CC
+- **Total Funding Request:** 2,190,000 CC
 - **Project Duration:** 19 weeks implementation, followed by 12 months maintenance
 
 ## Abstract
@@ -157,7 +157,7 @@ Existing applications can integrate with the authorization layer by implementing
 **Ecosystem value:** Validates the core architecture and security boundaries and provides Canton application teams with an open-source, reusable authorization package, reference runner, conformance suite, and integration guidance that reduce the effort and security risk of adding bounded automation without granting principal Ledger API rights to an off-ledger operator.
 
 ### Milestone 2: TestNet Validation and Independent Evaluation
-**Estimated Delivery:** 5 weeks after Milestone 1 acceptance.
+**Estimated Technical Delivery:** 5 weeks after Milestone 1 acceptance.
 **Focus:** Demonstrate sustained TestNet operation and validate the reference implementation with independent Canton application teams and ecosystem builders.
 **Deliverables / Value Metrics:**
 - Public TestNet deployment of the reference implementation.
@@ -177,7 +177,7 @@ Existing applications can integrate with the authorization layer by implementing
 **Adoption Gate Deadline:** 6 months from the beginning of Milestone 2.
 
 ### Milestone 3: Security Review & Standards Candidate
-**Estimated Delivery:** 5 weeks after Milestone 2 acceptance, plus independent security review and remediation if needed.
+**Estimated Technical Delivery:** 5 weeks after Milestone 2 acceptance, plus independent security review and remediation if needed.
 **Focus:** Independently validate and harden the security model and prepare the abstraction for ecosystem standardization.
 **Deliverables / Value Metrics:**
 - Prepare codebase, architecture, threat model, tests, and supporting material for independent review.
@@ -210,10 +210,15 @@ Existing applications can integrate with the authorization layer by implementing
 **Ecosystem value:** Provides a defined post delivery maintenance period so ecosystem users can evaluate and adopt the reference implementation without depending on an unmaintained grant artifact.
 
 ## Indicative Delivery Schedule
+
+The following schedule refers to the technical milestones delivery
 - Weeks 1–9: Milestone 1
 - Weeks 10–14: Milestone 2
 - Weeks 15–19: Milestone 3
 - Months 1–12 following Milestone 3 acceptance: Milestone 4
+
+Milestones 2 and 3 each carry an adoption gate with its own 6 month deadline. Milestone 2 is complete only once its adoption gate is met within that deadline, and Milestone 3 begins only after that point. Milestone 3 then has its own 6 month deadline to meet its adoption gate.
+
 The project therefore has an expected 19 week implementation schedule, excluding external evaluator availability, adoption timeline, security review scheduling, remediation, and variable SIG or CIP feedback.
 
 ## Acceptance Criteria
@@ -222,6 +227,7 @@ The Tech & Ops Committee will evaluate completion based on:
 - Demonstrated functionality and operational readiness.
 - Documentation and knowledge transfer provided.
 - Alignment with the stated value metrics.
+
 Project-specific acceptance conditions are:
 - The runner submits commands only as its operator party and does not require actAs rights for any principal.
 - Revocation, expiry, execution count, minimum interval, and app-specific value constraints are enforced on-ledger rather than only in the runner.
@@ -236,22 +242,25 @@ Project-specific acceptance conditions are:
 - Milestone 4 is accepted after completion of the 12 month maintenance period and delivery of the required quarterly maintenance reports, including the final month 12 report, provided the repository, supported version matrix, vulnerability reporting process, and in scope maintenance obligations have been maintained throughout the period.
 
 ## Funding
-**Total Funding Request:** 1,840,000 CC
-840,000 CC Development work **(45.6%)** + 200,000 CC Maintenance: **(10.9%)** + upto 800,000 CC **(43.5%)** CC for adoption based milestone
+**Maximum Funding Request:** 2,190,000 CC
+890,000 CC Development work **(47.1%)** + 200,000 CC Maintenance: **(10.6%)** + upto 800,000 CC **(42.3%)** CC for adoption based milestone + Upto 300,000 CC (Ring fenced) for Independent Security Audit
 
-Funding for an independent security audit is **NOT** included in this proposal, and will be allocated separately by the Foundation when the M3 commences, based on the quotations received. The funds for review is fully allocated to the auditing company and Vacuumlabs receive no part of this.
+Funding for an independent security audit is capped at 300,000 CC. Vacuumlabs will evaluate quotations from multiple audit firms and, subject to the Canton Foundation's agreement, engage the selected firm. This payment is a pass-through cost, and Vacuumlabs retains no portion of it. Once the agreement with the audit firm is finalized, Vacuumlabs will invoice for the audit payment, equal to the audit cost and not exceeding the 300,000 CC cap, during Milestone 3. **Audit costs are not gated by the adoption gates on Milestone 3.** Payment becomes due once Milestone 2 is accepted and the agreement with the audit firm is finalized during Milestone 3. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
+
+> Note: The percentage figures denote each amount's percentage of the maximum total amount receivable by Vacuumlabs, i.e., 1,890,000 CC, excluding the audit costs.
 
 ### Payment Breakdown by Milestone
 The total funding for each milestone consists of costs for technical delivery and adoption events associated with the respective milestone.
 
 #### Milestone 1: Architecture Validation, Authorization Package, and Reference Runner
-**Total Funding:** 620,000 CC **(33.7%)**
-Payment upon Committee acceptance of the Milestone 1 deliverables, including the architecture validation report, the authorization package implementation, tests, conformance suite, documentation, deployment instructions, and standards draft.
+**Total Funding:** 670,000 CC **(35.4%)**
+Payment upon Committee acceptance of the Milestone 1 deliverables, including the architecture validation report, the authorization package implementation, tests, conformance suite, documentation, deployment instructions.
+
 #### Milestone 2: TestNet Validation and Independent Evaluation
-**Total Funding:** 300,000 CC **(16.3%)** (Including Adoption Amount)
+**Total Funding:** 300,000 CC **(15.9%)** (Including Adoption Amount)
 Payment upon Committee acceptance of the TestNet validation evidence, external technical evaluations, and documented dispositions of evaluation feedback.
 
-**Adoption Amount:** Upto 200,000 CC **(10.9%)**
+**Adoption Amount:** Upto 200,000 CC **(10.6%)**
 
 **Adoption Gate:** 
 - 2 of 3 organizations qualifying at Pilot Tier (row 1a, **50,000 CC** each) as per the [Adoption Based Milestones table](#adoption-based-milestones). 
@@ -261,11 +270,11 @@ Payment upon Committee acceptance of the TestNet validation evidence, external t
 
 #### Milestone 3: Security Review and Standards Candidate
 
-**Total Funding:** 320,000 CC **(17.4%)** (Including Adoption Amount)
+**Total Funding:** 320,000 CC **(16.9%)** (Including Adoption Amount)
 
 Payment upon Committee acceptance of the Milestone 3 deliverables, including remediation of review findings, final security and operational documentation, standards candidate presentation, and CIP submission if supported by the relevant SIGs and champion.
 
-**Adoption Amount:** Upto 200,000 CC **(10.9%)**
+**Adoption Amount:** Upto 200,000 CC **(10.6%)**
 
 **Adoption Gate**
 - 2 of 3 organizations qualifying at Production Tier (row 1b, 100,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones).
@@ -275,7 +284,7 @@ Payment upon Committee acceptance of the Milestone 3 deliverables, including rem
 **Independent security review funding:** separate Committee approved quote, submitted once the implementation stabilizes.
 
 #### Milestone 4: Maintenance and Compatibility Support
-**Total Funding:** 200,000 CC **(10.9%)**
+**Total Funding:** 200,000 CC **(10.6%)**
 The Milestone 4 funding will be paid in four quarterly tranches during the 12 month maintenance period:
 - Month 3 maintenance tranche: 50,000 CC
 - Month 6 maintenance tranche: 50,000 CC
