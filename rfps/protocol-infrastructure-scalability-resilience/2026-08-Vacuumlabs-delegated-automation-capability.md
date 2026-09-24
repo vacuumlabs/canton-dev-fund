@@ -12,7 +12,8 @@
 
 ## Abstract
 
-This proposal requests funding to validate and deliver an open source reference implementation and standards candidate for authorization, delegation, and automation of smart contract interactions for Canton applications. A user will be able to create an authorization grant that permits a party to exercise one typed application action under ledger constraints, such as expiration, maximum number of executions, cooldown period between executions and other application level constraints.
+This proposal requests funding to deliver an open source reference implementation and CIP standards candidate for authorization, delegation, and automation of smart contract interactions for Canton applications. A user will be able to create an authorization grant that allows a party to exercise a permitted action under ledger constraints. The authorization grant is scoped to a single permitted action and is bounded by constraints such as an expiration time, a maximum number of executions, a minimum cooldown period between executions, and any additional application-level constraints configured on ledger.
+
 The deliverables include a reusable Daml authorization interface, supporting interfaces for authorization scope, triggers, and request payloads, three reference adapter templates, a TypeScript automation runner, a reference TestNet deployment evaluated by at least two external Canton application teams or ecosystem builders, and a normative specification suitable for consideration as a Canton Improvement Proposal.
 The runner will act only as its own operator party. It will not receive the user's keys or actAs rights. Application authority will be granted through Daml contracts and will remain constrained, visible, revocable, and auditable on ledger.
 ## Specification
@@ -38,12 +39,17 @@ Each app specific authorization template that implements the interface will expo
 - typed target summary
 - human readable constraint summary and
 - optional auditor or application operator visibility.
+
 The app specific authorization template will hold the typed target contract identifiers and action arguments required by that application. The common interface will not attempt to encode arbitrary method names or dynamically typed arguments.
+
 Each authorization will provide two core operations:
-- Execute, controlled by the Operator, which checks all on ledger constraints and invokes the typed target action and
-- Revoke, controlled by the Principal, which terminates the authorization by archiving the contract.
-The principal will be a signatory of the authorization contract and the operator will be an observer and the controller of Execute. Milestone 1 will validate the exact Daml authorization path for nested target exercises. The authorization cannot bypass any authority required from other target contract parties.
+- `Execute`, controlled by the Operator, which checks all on ledger constraints and invokes the typed target action and
+- `Revoke`, controlled by the Principal, which terminates the authorization by archiving the contract.
+
+The principal will be a signatory of the authorization contract and the operator will be an observer and the controller of Execute. The authorization cannot bypass any authority required from other target contract parties, and can only authorize actions on the user's behalf, to be performed by the party the authorization is granted to.
+
 Execute will be consuming. When additional executions remain, the choice will create the next authorization state with updated execution count and next eligible time. This makes the active authorization contract version the concurrency and replay boundary.
+
 The initial release will use one authorization per typed action, for a single party operator and single party principal. It will not use one broad contract containing an arbitrary list of unrelated methods. This keeps grants inspectable, revocable, and compatible with Daml's static type system.
 #### 2.2 Reference automation runner
 A TypeScript reference runner will use the supported Canton Ledger API to:
@@ -145,7 +151,6 @@ Existing applications can integrate with the authorization layer by implementing
 - Integration guide showing how an existing application adds one typed adapter without granting principal Ledger API rights to the runner.
 - Threat model and privacy data flow.
 - Package manifest recording, for each published release, the package name, version, package identity, and DAR SHA-256.
-- Public architecture validation report documenting the validated authorization path, visibility model, concurrency behavior, operator recovery approach, integration boundary, and any design refinements identified during the milestone.
 - Normative specification and versioning policy.
 - Public walkthrough for Canton application developers.
 - Reference dashboard supporting party login, active authorization grant details, principal controlled revocation, historical execution viewing, and backend integration.
@@ -162,8 +167,14 @@ Existing applications can integrate with the authorization layer by implementing
 - At least two external Canton application teams or ecosystem builders actively evaluate the public TestNet deployment or codebase.
 - Collect documented feedback from those evaluations covering the authorization model, adapter integration boundary, visibility requirements, and operational usability.
 - Incorporate applicable evaluation findings into the implementation, documentation, and specification, with dispositions recorded for feedback not incorporated.
+
 **Ecosystem value:** Provides independent evidence that Canton builders can evaluate the authorization and automation model against real application workflows without requiring them to complete an application integration as a condition of this grant.
-**Adoption Gate:** 200,000 CC, gated on 2 of 3 organizations qualifying at Pilot Tier (row 1a, 50,000 CC each) plus 2 independent conformance kit runs (row 2, 50,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones). Deadline: 6 months from the beginning of Milestone 2. If only partly met, the Foundation pays only for the adoption events met and not the milestone.
+
+**Adoption Gate:**
+- 2 out of 3 organizations qualifying at Pilot Tier (row 1a), per the [Adoption Based Milestones table](#adoption-based-milestones). 
+- 2 independent conformance kit runs (row 2), per the [Adoption Based Milestones table](#adoption-based-milestones). 
+
+**Adoption Gate Deadline:** 6 months from the beginning of Milestone 2.
 
 ### Milestone 3: Security Review & Standards Candidate
 **Estimated Delivery:** 5 weeks after Milestone 2 acceptance, plus independent security review and remediation if needed.
@@ -178,8 +189,13 @@ Existing applications can integrate with the authorization layer by implementing
 - If supported, prepare and submit the initial CIP pull request.
 - Address reasonable CIP editor, SIG, and community technical feedback received during the funded project period.
 - Independent security review: The reviewer or firm and the review scope must be approved by the Committee. The external review cost will be paid separately against a Committee approved quote once the implementation scope is stable. The review will cover the Daml authorization package, reference adapters, runner authority and credential model, replay and concurrency handling, visibility assumptions, revocation races, and operational failure modes.
+
 **Ecosystem value:** Converts implementation, TestNet, and external evaluation evidence into an independently reviewed, reusable standards candidate that the Canton ecosystem can evaluate for broader adoption.
-**Adoption Gate:** 200,000 CC, gated on 2 of 3 organizations qualifying at Production Tier (row 1b, 100,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones). Deadline: 6 months from the beginning of Milestone 3. If only partly met, the Foundation pays only for the adoption events met and not the milestone.
+
+**Adoption Gate:** 
+- 2 of 3 organizations qualifying at Production Tier (row 1b), per the [Adoption Based Milestones table](#adoption-based-milestones).
+
+**Adoption Gate Deadline:** 6 months from the beginning of Milestone 3.
 
 ### Milestone 4: Maintenance and Compatibility Support
 **Estimated Delivery:** Begins at Milestone 3 acceptance, covers the following 12 months
@@ -198,7 +214,8 @@ Existing applications can integrate with the authorization layer by implementing
 - Weeks 10–14: Milestone 2
 - Weeks 15–19: Milestone 3
 - Months 1–12 following Milestone 3 acceptance: Milestone 4
-The project therefore has an expected 19 week implementation schedule, excluding external evaluator availability, security review scheduling, remediation, and variable SIG or CIP feedback.
+The project therefore has an expected 19 week implementation schedule, excluding external evaluator availability, adoption timeline, security review scheduling, remediation, and variable SIG or CIP feedback.
+
 ## Acceptance Criteria
 The Tech & Ops Committee will evaluate completion based on:
 - Deliverables completed as specified for each milestone.
@@ -220,47 +237,45 @@ Project-specific acceptance conditions are:
 
 ## Funding
 **Total Funding Request:** 1,840,000 CC
+840,000 CC Development work **(45.6%)** + 200,000 CC Maintenance: **(10.9%)** + upto 800,000 CC **(43.5%)** CC for adoption based milestone
 
-840,000 CC (Development work) + 200,000 CC (Maintenance) + upto 800,000 CC for adoption based milestone.
+Funding for an independent security audit is **NOT** included in this proposal, and will be allocated separately by the Foundation when the M3 commences, based on the quotations received. The funds for review is fully allocated to the auditing company and Vacuumlabs receive no part of this.
 
-The funding breakdown is as follows:
-
-| Milestone | Timeline | Amount (in CC) | Adoption Gates | Adoption Gate Amount (in CC)* | Adoption Gate Deadline |
-|---|---|---|---|---|---|
-| M1 (Technical Delivery) | Weeks 1–9 | 620,000 (**33.7%**) | N/A | N/A | N/A |
-| M2 (Testnet Validation & Adoption) | Weeks 10–14 | 100,000 (**5.4%**) | 2/3 orgs on Pilot Tier, 2 Conformance kit runs | 200,000 (**10.9%**) | 6 Months from beginning of M2 |
-| M3 (Security Review, Production release, CIP review) | Weeks 15–19 | 120,000 (**6.5%**) | 2/3 orgs on Production Tier | 200,000 (**10.9%**) | 6 Months from beginning of M3  |
-| M4 (Maintenance) | Months 1–12 after M3 acceptance | 200,000 (**10.9%**) | N/A | N/A | N/A |
-| Remaining adoption upside (ungated)** | Anytime within claim window (12 months from beginning of M3) | N/A | 3rd Pilot org, 3rd Production org, downstream spec reuse, CIP Draft, CIP Merged | up to 400,000 (**21.7%**) | Per Adoption Based Milestones table |
-| **Total** | 19 weeks implementation + 12 months maintenance | **1,040,000 (56.5%)** | | **up to 800,000 (43.5%)** | |
-
-**Grand Total (Technical Delivery + Maintenance + Adoption): 1,840,000 CC (100%)**
-
-\* Gate amounts come from the [Adoption Based Milestones table](#adoption-based-milestones) below. The M2 gate is 200,000 CC: 2 Pilot-tier orgs × 50,000 CC (row 1a) plus 2 Conformance kit runs × 50,000 CC (row 2). The M3 gate is 200,000 CC: 2 Production-tier orgs × 100,000 CC (row 1b).
-
-\*\* The remaining 400,000 CC of the 800,000 CC adoption cap covers 1 further Pilot org, 1 further Production org, downstream spec reuse, CIP Draft, and CIP Merged. Vacuumlabs can claim it at any point in the claim window.
-
-The [Adoption Milestones](#adoption-based-milestones) cover 3 orgs on Pilot Tier and 3 orgs on Production Tier. The Adoption Gate on M2 and M3 lets Vacuumlabs continue work on the next milestones, based on initial proof of adoption. Passing the Adoption Gate is required to complete each milestone.
-
-If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone. **M2 and M3 will be paid out only when their respective adoption gates are fully met.**
-
-
-The independent security review cost is not included in the amount above. The reviewer, review scope, and actual quote will be submitted to the Committee for approval once the implementation scope is stable.
 ### Payment Breakdown by Milestone
+The total funding for each milestone consists of costs for technical delivery and adoption events associated with the respective milestone.
+
 #### Milestone 1: Architecture Validation, Authorization Package, and Reference Runner
-**Funding:** 620,000 CC
+**Total Funding:** 620,000 CC **(33.7%)**
 Payment upon Committee acceptance of the Milestone 1 deliverables, including the architecture validation report, the authorization package implementation, tests, conformance suite, documentation, deployment instructions, and standards draft.
 #### Milestone 2: TestNet Validation and Independent Evaluation
-**Funding:** 100,000 CC
+**Total Funding:** 300,000 CC **(16.3%)** (Including Adoption Amount)
 Payment upon Committee acceptance of the TestNet validation evidence, external technical evaluations, and documented dispositions of evaluation feedback.
-**Adoption Gate:** 200,000 CC, gated on 2 of 3 organizations qualifying at Pilot Tier (row 1a, 50,000 CC each) plus 2 independent conformance kit runs (row 2, 50,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones). Deadline: 6 months from the beginning of Milestone 2.
+
+**Adoption Amount:** Upto 200,000 CC **(10.9%)**
+
+**Adoption Gate:** 
+- 2 of 3 organizations qualifying at Pilot Tier (row 1a, **50,000 CC** each) as per the [Adoption Based Milestones table](#adoption-based-milestones). 
+- 2 independent conformance kit runs (row 2, **50,000 CC** each), per the [Adoption Based Milestones table](#adoption-based-milestones). 
+
+**Adoption Gate Deadline:** 6 months from the beginning of Milestone 2.
+
 #### Milestone 3: Security Review and Standards Candidate
-**Funding:** 120,000 CC
+
+**Total Funding:** 320,000 CC **(17.4%)** (Including Adoption Amount)
+
 Payment upon Committee acceptance of the Milestone 3 deliverables, including remediation of review findings, final security and operational documentation, standards candidate presentation, and CIP submission if supported by the relevant SIGs and champion.
-**Adoption Gate:** 200,000 CC, gated on 2 of 3 organizations qualifying at Production Tier (row 1b, 100,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones). Deadline: 6 months from the beginning of Milestone 3.
-**Independent security review funding:** separate Committee approved quote.
+
+**Adoption Amount:** Upto 200,000 CC **(10.9%)**
+
+**Adoption Gate**
+- 2 of 3 organizations qualifying at Production Tier (row 1b, 100,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones).
+
+**Adoption Gate Deadline:** 6 months from the beginning of Milestone 3.
+
+**Independent security review funding:** separate Committee approved quote, submitted once the implementation stabilizes.
+
 #### Milestone 4: Maintenance and Compatibility Support
-**Total Funding:** 200,000 CC
+**Total Funding:** 200,000 CC **(10.9%)**
 The Milestone 4 funding will be paid in four quarterly tranches during the 12 month maintenance period:
 - Month 3 maintenance tranche: 50,000 CC
 - Month 6 maintenance tranche: 50,000 CC
@@ -269,19 +284,34 @@ The Milestone 4 funding will be paid in four quarterly tranches during the 12 mo
 
 Each quarterly tranche is payable following delivery of the corresponding maintenance report and completion of the maintenance obligations for that period. The final tranche also requires delivery of the end of maintenance report.
 
+#### Remaining Adoption Based Payment
+The remaining 400,000 CC of the 800,000 CC adoption cap covers:
+
+- 1 Pilot tier organization
+- 1 Production tier organization
+- downstream spec reuse of the Authorization template
+- CIP Draft created and number assigned.
+- CIP Merged.
+
+**Deadline for claim:** End of Milestone 4.
+
+Passing the Adoption Gate COMPLETELY is required to complete each milestone.
+
+If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met within the gate based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone. **M2 and M3 will be paid out only when their respective adoption gates are fully met.**
+
 ### Adoption Based Milestones
 
 A detailed breakdown on how we have priced the adoption milestones.
 
-| # | Adoption Milestone | Payment Each | Cap | Maximum | Evidence required | Deadline |
-|---|---|---|---|---|---|---|
-| 1a | Adoption on pilot tier | 50,000 CC | 3 | 150,000 CC | Dependency proof resolving to a package identity in the published package manifest, plus the DAR hash. A runner adoption report covering the qualifying window, listing execution counts, rejections, revocations, package identities in use, and the operator party identifier. The adopter's written confirmation to the Committee. | 2 of 3: 6 months from beginning of M2. Remaining 1: 12 months from beginning of M3. |
-| 1b | Qualified adopter, production tier | 100,000 CC | 3 | 300,000 CC | As for row 1a. | 2 of 3: 6 months from beginning of M3. Remaining 1: 12 months from beginning of M3. |
-| 2 | Independent conformance: a third party adapter or an independently implemented runner passes the published conformance test kit | 50,000 CC | 2 | 100,000 CC | Machine readable conformance kit output recording kit version, package identities under test, and per case results, together with a public continuous integration run the Committee can reproduce. | 6 months from beginning of M2. |
-| 3 | Downstream specification reuse: a published CIP, standard, or Foundation funded reference authored by another team normatively references the authorization interface | 100,000 CC | 1 | 100,000 CC | The published document, with the normative reference identified. | 12 months from beginning of M3. |
-| 4a | CIP assigned a number and accepted as Draft in the Canton Foundation CIP repository | 50,000 CC | 1 (one time only) | 50,000 CC | Public state of the Canton Foundation CIP repository. | 12 months from beginning of M3. |
-| 4b | CIP merged | 100,000 CC | 1 (one time only) | 100,000 CC | Public state of the Canton Foundation CIP repository. | 12 months from beginning of M3. |
-| | **Aggregate cap across all adoption milestones** | | | **800,000 CC** | | |
+| # | Adoption Milestone | Payment Each | Cap | Maximum | Evidence required |
+|---|---|---|---|---|---|
+| 1a | Adoption on pilot tier | 50,000 CC | 3 | 150,000 CC | Dependency proof resolving to a package identity in the published package manifest, plus the DAR hash. A runner adoption report covering the qualifying window, listing execution counts, rejections, revocations, package identities in use, and the operator party identifier. The adopter's written confirmation to the Committee. |
+| 1b | Qualified adopter, production tier | 100,000 CC | 3 | 300,000 CC | As for row 1a. |
+| 2 | Independent conformance: a third party adapter or an independently implemented runner passes the published conformance test kit | 50,000 CC | 2 | 100,000 CC | Machine readable conformance kit output recording kit version, package identities under test, and per case results, together with a public continuous integration run the Committee can reproduce. |
+| 3 | Downstream specification reuse: a published CIP, standard, or Foundation funded reference authored by another team normatively references the authorization interface | 100,000 CC | 1 | 100,000 CC | The published document, with the normative reference identified. |
+| 4a | CIP assigned a number and accepted as Draft in the Canton Foundation CIP repository | 50,000 CC | 1 (one time only) | 50,000 CC | Public state of the Canton Foundation CIP repository. |
+| 4b | CIP merged | 100,000 CC | 1 (one time only) | 100,000 CC | Public state of the Canton Foundation CIP repository. |
+| | **Aggregate cap across all adoption milestones** | | | **800,000 CC** | |
 
 
 **Disclosure of rows 1a and 1b evidence.** The adopter provides this evidence either publicly with the adopter's consent, or privately to the Canton Foundation under confidentiality. In the confidential case, the Foundation confirms qualification to the Committee.
