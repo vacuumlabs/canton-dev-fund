@@ -144,6 +144,7 @@ Existing applications can integrate with the authorization layer by implementing
 - Reproducible local and TestNet deployment instructions.
 - Integration guide showing how an existing application adds one typed adapter without granting principal Ledger API rights to the runner.
 - Threat model and privacy data flow.
+- Package manifest recording, for each published release, the package name, version, package identity, and DAR SHA-256.
 - Public architecture validation report documenting the validated authorization path, visibility model, concurrency behavior, operator recovery approach, integration boundary, and any design refinements identified during the milestone.
 - Normative specification and versioning policy.
 - Public walkthrough for Canton application developers.
