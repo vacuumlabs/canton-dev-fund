@@ -151,7 +151,7 @@ Existing applications can integrate with the authorization layer by implementing
 **Ecosystem value:** Validates the core architecture and security boundaries and provides Canton application teams with an open-source, reusable authorization package, reference runner, conformance suite, and integration guidance that reduce the effort and security risk of adding bounded automation without granting principal Ledger API rights to an off-ledger operator.
 
 ### Milestone 2: TestNet Validation and Independent Evaluation
-**Estimated Delivery:** 5 weeks after Milestone 1 acceptance. Runs in parallel with Milestone 3.
+**Estimated Delivery:** 5 weeks after Milestone 1 acceptance.
 **Focus:** Demonstrate sustained TestNet operation and validate the reference implementation with independent Canton application teams and ecosystem builders.
 **Deliverables / Value Metrics:**
 - Public TestNet deployment of the reference implementation.
@@ -165,7 +165,7 @@ Existing applications can integrate with the authorization layer by implementing
 **Adoption Gate:** 200,000 CC, gated on 2 of 3 organizations qualifying at Pilot Tier (row 1a, 50,000 CC each) plus 2 independent conformance kit runs (row 2, 50,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones). Deadline: 6 months from the beginning of Milestone 2. If only partly met, the Foundation pays only for the adoption events met and not the milestone.
 
 ### Milestone 3: Security Review & Standards Candidate
-**Estimated Delivery:** 10 weeks after Milestone 1 acceptance, plus independent security review and remediation if needed. Begins in parallel with Milestone 2 and completes after Milestone 2 findings are incorporated.
+**Estimated Delivery:** 5 weeks after Milestone 2 acceptance, plus independent security review and remediation if needed.
 **Focus:** Independently validate and harden the security model and prepare the abstraction for ecosystem standardization.
 **Deliverables / Value Metrics:**
 - Prepare codebase, architecture, threat model, tests, and supporting material for independent review.
@@ -195,10 +195,9 @@ Existing applications can integrate with the authorization layer by implementing
 ## Indicative Delivery Schedule
 - Weeks 1–9: Milestone 1
 - Weeks 10–14: Milestone 2
-- Weeks 10–19: Milestone 3, run in parallel with Milestone 2
+- Weeks 15–19: Milestone 3
 - Months 1–12 following Milestone 3 acceptance: Milestone 4
 The project therefore has an expected 19 week implementation schedule, excluding external evaluator availability, security review scheduling, remediation, and variable SIG or CIP feedback.
-Milestones 2 and 3 both begin after Milestone 1 acceptance and run concurrently, so the 19 week total reflects that overlap rather than the sum of the individual milestone durations.
 ## Acceptance Criteria
 The Tech & Ops Committee will evaluate completion based on:
 - Deliverables completed as specified for each milestone.
@@ -229,7 +228,7 @@ The funding breakdown is as follows:
 |---|---|---|---|---|---|
 | M1 (Technical Delivery) | Weeks 1–9 | 620,000 (**33.7%**) | N/A | N/A | N/A |
 | M2 (Testnet Validation & Adoption) | Weeks 10–14 | 100,000 (**5.4%**) | 2/3 orgs on Pilot Tier, 2 Conformance kit runs | 200,000 (**10.9%**) | 6 Months from beginning of M2 |
-| M3 (Security Review, Production release, CIP review) | Weeks 10–19 | 120,000 (**6.5%**) | 2/3 orgs on Production Tier | 200,000 (**10.9%**) | 6 Months from beginning of M3  |
+| M3 (Security Review, Production release, CIP review) | Weeks 15–19 | 120,000 (**6.5%**) | 2/3 orgs on Production Tier | 200,000 (**10.9%**) | 6 Months from beginning of M3  |
 | M4 (Maintenance) | Months 1–12 after M3 acceptance | 200,000 (**10.9%**) | N/A | N/A | N/A |
 | Remaining adoption upside (ungated)** | Anytime within claim window (12 months from beginning of M3) | N/A | 3rd Pilot org, 3rd Production org, downstream spec reuse, CIP Draft, CIP Merged | up to 400,000 (**21.7%**) | Per Adoption Based Milestones table |
 | **Total** | 19 weeks implementation + 12 months maintenance | **1,040,000 (56.5%)** | | **up to 800,000 (43.5%)** | |
@@ -301,7 +300,7 @@ A qualified adopter is an organization, other than Vacuumlabs and our affiliates
 
 **Client work disclosure.** Where the implementing entity is engaged commercially by the adopting organization, the engagement is disclosed to the Committee at the time of claim and the adopter's confirmation is provided independently by the adopter. The Committee may decline a claim on this basis.
 
-The project will publish a package manifest at Milestone 1 recording, for each release, the package name, version, package identity, and DAR SHA-256. That manifest is the binding artifact for determining whether a claimed integration uses the published authorization package. Qualifying reuse includes any release in the published manifest lineage, so that adopters depending on the package by name across an upgrade lineage are not excluded.
+The project will publish a package manifest at Milestone 1 recording, for each release, the package name, version, package identity, and DAR SHA-256. That manifest is the binding artifact for determining whether a claimed integration uses the published authorization package.
 
 ### Volatility Stipulation
 Because Milestone 4 extends beyond six months, unpaid Milestone 4 tranches scheduled more than six months after Milestone 3 acceptance may be renegotiated to account for significant USD/CC price volatility. The same applies to remaining milestone payments if the project timeline is extended beyond six months due to Committee requested scope changes.
