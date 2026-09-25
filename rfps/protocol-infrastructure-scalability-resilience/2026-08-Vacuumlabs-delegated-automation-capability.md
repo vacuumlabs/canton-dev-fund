@@ -169,7 +169,9 @@ Existing applications can integrate with the authorization layer by implementing
 ### Milestone 1: Architecture Validation, Authorization Package, and Reference Runner
 
 **Estimated Delivery:** 9 weeks from project start
+
 **Focus:** Validate the authorization, authority, visibility, concurrency, recovery, and integration architecture, and deliver the reusable authorization package, reference runner, conformance suite, and integration documentation.
+
 **Deliverables / Value Metrics:**
 
 - Public Apache 2.0 repository with a reproducible Canton local environment.
@@ -192,7 +194,9 @@ Existing applications can integrate with the authorization layer by implementing
 ### Milestone 2: TestNet Validation and Independent Evaluation
 
 **Estimated Delivery:** Maximum of 6 months from the beginning of Milestone 2, set by the adoption gate deadline.
+
 **Focus:** Demonstrate sustained TestNet operation and validate the reference implementation with independent Canton application teams and ecosystem builders.
+
 **Deliverables / Value Metrics:**
 
 - Public TestNet deployment of the reference implementation.
@@ -215,7 +219,9 @@ Existing applications can integrate with the authorization layer by implementing
 ### Milestone 3: Security Review & Standards Candidate
 
 **Estimated Delivery:** Maximum of 6 months from the beginning of Milestone 3, set by the adoption gate deadline.
+
 **Focus:** Independently validate and harden the security model and prepare the abstraction for ecosystem standardization.
+
 **Deliverables / Value Metrics:**
 
 - Prepare codebase, architecture, threat model, tests, and supporting material for independent review.
@@ -239,7 +245,9 @@ Existing applications can integrate with the authorization layer by implementing
 ### Milestone 4: Maintenance and Compatibility Support
 
 **Estimated Delivery:** Begins at Milestone 3 acceptance, covers the following 12 months
+
 **Focus:** Maintain the public reference implementation after delivery and preserve compatibility with the documented supported Canton and Daml versions.
+
 **Deliverables / Value Metrics:**
 
 - Maintain the public repository, issue tracker, release process, and vulnerability reporting channel throughout the maintenance period.
@@ -288,6 +296,7 @@ Project-specific acceptance conditions are:
 ## Funding
 
 **Maximum Funding Request:** 2,190,000 CC
+
 890,000 CC Development work **(47.1%)** + 200,000 CC Maintenance: **(10.6%)** + up to 800,000 CC **(42.3%)** CC for adoption based milestone + up to 300,000 CC (Ring fenced) for Independent Security Audit
 
 Funding for an independent security audit is capped at 300,000 CC. Vacuumlabs will evaluate quotations from multiple audit firms and, subject to the Canton Foundation's agreement, engage the selected firm. This payment is a pass-through cost, and Vacuumlabs retains no portion of it. Once the agreement with the audit firm is finalized, Vacuumlabs will invoice for the audit payment, equal to the audit cost and not exceeding the 300,000 CC cap, during Milestone 3. **Audit costs are not gated by the adoption gates on Milestone 3.** Payment becomes due once Milestone 2 is accepted and the agreement with the audit firm is finalized during Milestone 3. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
