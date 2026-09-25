@@ -48,8 +48,6 @@ Each authorization will provide two core operations:
 
 The principal will be a signatory of the authorization contract and the operator will be an observer and the controller of Execute. The authorization cannot bypass any authority required from other target contract parties, and can only authorize actions on the user's behalf, to be performed by the party the authorization is granted to.
 
-Execute will be consuming. When additional executions remain, the choice will create the next authorization state with updated execution count and next eligible time. This makes the active authorization contract version the concurrency and replay boundary.
-
 The initial release will use one authorization per typed action, for a single party operator and single party principal. It will not use one broad contract containing an arbitrary list of unrelated methods. This keeps grants inspectable, revocable, and compatible with Daml's static type system.
 #### 2.2 Reference automation runner
 A TypeScript reference runner will use the supported Canton Ledger API to:
@@ -82,7 +80,7 @@ The project will include three independently testable adapters:
 The project will also ship a UI tool for viewing:
 
 - The list of authorizations granted to and granted by the party logging in.
-- Transaction hashes, Request summaries.
+- Transaction IDs, Request summaries.
 - Authorization grants info, list of grant info including cooldown time, expiration timestamp etc.
 - List of all Execute calls, transaction details etc.
 - Button to revoke the authorization grant.
@@ -114,8 +112,7 @@ This proposal does not fund:
 - a validator native sidecar requirement
 - protocol or core Canton repository changes
 - external oracle infrastructure
-- automated trading strategies or
-- Mainnet production deployment.
+- automated trading strategies
 
 ### 3. Architectural Alignment
 
@@ -138,7 +135,7 @@ Existing applications can integrate with the authorization layer by implementing
 ## Milestones and Deliverables
 ### Milestone 1: Architecture Validation, Authorization Package, and Reference Runner
 **Estimated Delivery:** 9 weeks from project start
-**Focus:** Validate the authorization, authority, visibility, concurrency, recovery, and integration architecture, and deliver the final reusable authorization package, reference runner, conformance suite, and integration documentation.
+**Focus:** Validate the authorization, authority, visibility, concurrency, recovery, and integration architecture, and deliver the reusable authorization package, reference runner, conformance suite, and integration documentation.
 **Deliverables / Value Metrics:**
 - Public Apache 2.0 repository with a reproducible Canton local environment.
 - Versioned Daml package containing the common authorization interfaces and utilities, together with three reference adapter implementations, code comments, and developer documentation.
@@ -254,7 +251,7 @@ The total funding for each milestone consists of costs for technical delivery an
 
 #### Milestone 1: Architecture Validation, Authorization Package, and Reference Runner
 **Total Funding:** 670,000 CC **(35.4%)**
-Payment upon Committee acceptance of the Milestone 1 deliverables, including the architecture validation report, the authorization package implementation, tests, conformance suite, documentation, deployment instructions.
+Payment upon Committee acceptance of the Milestone 1 deliverables, including the authorization package implementation, tests, conformance suite, documentation, deployment instructions.
 
 #### Milestone 2: TestNet Validation and Independent Evaluation
 **Total Funding:** 300,000 CC **(15.9%)** (Including Adoption Amount)
@@ -304,7 +301,7 @@ The remaining 400,000 CC of the 800,000 CC adoption cap covers:
 
 **Deadline for claim:** End of Milestone 4.
 
-Passing the Adoption Gate COMPLETELY is required to complete each milestone.
+Passing the Adoption Gate COMPLETELY is required to complete each milestone that contains an adoption gate.
 
 If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met within the gate based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone. **M2 and M3 will be paid out only when their respective adoption gates are fully met.**
 
@@ -343,7 +340,7 @@ A qualified adopter is an organization, other than Vacuumlabs and our affiliates
 The project will publish a package manifest at Milestone 1 recording, for each release, the package name, version, package identity, and DAR SHA-256. That manifest is the binding artifact for determining whether a claimed integration uses the published authorization package.
 
 ### Volatility Stipulation
-Because Milestone 4 extends beyond six months, unpaid Milestone 4 tranches scheduled more than six months after Milestone 3 acceptance may be renegotiated to account for significant USD/CC price volatility. The same applies to remaining milestone payments if the project timeline is extended beyond six months due to Committee requested scope changes.
+Any tranche that remains unpaid more than six months after the grant is committed may be renegotiated to account for significant USD/CC price volatility. This applies to every unpaid tranche regardless of the reason for the delay, including the delay caused due to adoption events, Committee requested scope changes, and the quarterly schedule of the Milestone 4 maintenance tranches.
 
 ## Co-Marketing
 Upon release, the implementing entity will collaborate with the Foundation on:
