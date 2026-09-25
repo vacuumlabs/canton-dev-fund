@@ -8,7 +8,7 @@
 - **Label:** `dapp-integration`
 - **Champion:** Needs Champion
 - **Total Funding Request:** 2,190,000 CC
-- **Project Duration:** 19 weeks implementation, followed by 12 months maintenance
+- **Project Duration:** 9 weeks technical implementation, followed by a maximum of 12 months of adoption across 2 milestones, and 12 months of maintenance
 
 ## Abstract
 
@@ -154,7 +154,7 @@ Existing applications can integrate with the authorization layer by implementing
 **Ecosystem value:** Validates the core architecture and security boundaries and provides Canton application teams with an open-source, reusable authorization package, reference runner, conformance suite, and integration guidance that reduce the effort and security risk of adding bounded automation without granting principal Ledger API rights to an off-ledger operator.
 
 ### Milestone 2: TestNet Validation and Independent Evaluation
-**Estimated Technical Delivery:** 5 weeks after Milestone 1 acceptance.
+**Estimated Delivery:** Maximum of 6 months from the beginning of Milestone 2, set by the adoption gate deadline.
 **Focus:** Demonstrate sustained TestNet operation and validate the reference implementation with independent Canton application teams and ecosystem builders.
 **Deliverables / Value Metrics:**
 - Public TestNet deployment of the reference implementation.
@@ -174,7 +174,7 @@ Existing applications can integrate with the authorization layer by implementing
 **Adoption Gate Deadline:** 6 months from the beginning of Milestone 2.
 
 ### Milestone 3: Security Review & Standards Candidate
-**Estimated Technical Delivery:** 5 weeks after Milestone 2 acceptance, plus independent security review and remediation if needed.
+**Estimated Delivery:** Maximum of 6 months from the beginning of Milestone 3, set by the adoption gate deadline.
 **Focus:** Independently validate and harden the security model and prepare the abstraction for ecosystem standardization.
 **Deliverables / Value Metrics:**
 - Prepare codebase, architecture, threat model, tests, and supporting material for independent review.
@@ -208,15 +208,14 @@ Existing applications can integrate with the authorization layer by implementing
 
 ## Indicative Delivery Schedule
 
-The following schedule refers to the technical milestones delivery
 - Weeks 1–9: Milestone 1
-- Weeks 10–14: Milestone 2
-- Weeks 15–19: Milestone 3
-- Months 1–12 following Milestone 3 acceptance: Milestone 4
+- Maximum 6 months from M1 acceptance: Milestone 2
+- Maximum 6 months from M2 acceptance: Milestone 3
+- Months 1–12 following M3 acceptance: Milestone 4
 
-Milestones 2 and 3 each carry an adoption gate with its own 6 month deadline. Milestone 2 is complete only once its adoption gate is met within that deadline, and Milestone 3 begins only after that point. Milestone 3 then has its own 6 month deadline to meet its adoption gate.
+Milestones 2 and 3 each carry an adoption gate with its own 6 month deadline, which sets the maximum duration of that milestone at 6 months. Milestone 2 is complete only once its adoption gate is met within that deadline, and Milestone 3 begins only after that point. Milestone 3 then has its own 6 month deadline to meet its adoption gate.
 
-The project therefore has an expected 19 week implementation schedule, excluding external evaluator availability, adoption timeline, security review scheduling, remediation, and variable SIG or CIP feedback.
+The project therefore runs for a maximum of approximately 14 months to Milestone 3 acceptance: 9 weeks for Milestone 1, then up to 6 months each for Milestones 2 and 3. External evaluator availability, adoption timeline, security review scheduling, remediation, and variable SIG or CIP feedback all sit inside the 6 month caps on Milestones 2 and 3.
 
 ## Acceptance Criteria
 The Tech & Ops Committee will evaluate completion based on:
@@ -307,7 +306,9 @@ The remaining 400,000 CC of the 800,000 CC adoption cap covers:
 - CIP Draft created and number assigned.
 - CIP Merged.
 
-**Deadline for claim:** End of Milestone 4. Vacuumlabs can claim this at any point from project commencement to the end of Milestone 4 date.
+**Deadline for claim:** The end of Milestone 4, or the date the project halts, whichever comes first. Vacuumlabs may claim these amounts at any point from project commencement until that date.
+
+If the project halts before the end of Milestone 4, any adoption event in this remaining pool that has not been evidenced by the halt date is not payable. If the Foundation elects, at its sole discretion and in writing, to continue the project despite an unmet adoption gate, the claim window stays open through the end of Milestone 4.
 
 ### Adoption Based Milestones
 
