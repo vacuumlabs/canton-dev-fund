@@ -82,7 +82,7 @@ The project will also ship a UI tool for viewing:
 - The list of authorizations granted to and granted by the party logging in.
 - Transaction IDs, Request summaries.
 - Authorization grants info, list of grant info including cooldown time, expiration timestamp etc.
-- List of all Execute calls, transaction details etc.
+- List of all Execute calls, transaction details.
 - Button to revoke the authorization grant.
 
 The dashboard allows users to inspect authorization grants, review execution history, and revoke active grants.
@@ -240,11 +240,19 @@ Project-specific acceptance conditions are:
 
 ## Funding
 **Maximum Funding Request:** 2,190,000 CC
-890,000 CC Development work **(47.1%)** + 200,000 CC Maintenance: **(10.6%)** + upto 800,000 CC **(42.3%)** CC for adoption based milestone + Upto 300,000 CC (Ring fenced) for Independent Security Audit
+890,000 CC Development work **(47.1%)** + 200,000 CC Maintenance: **(10.6%)** + up to 800,000 CC **(42.3%)** CC for adoption based milestone + up to 300,000 CC (Ring fenced) for Independent Security Audit
 
 Funding for an independent security audit is capped at 300,000 CC. Vacuumlabs will evaluate quotations from multiple audit firms and, subject to the Canton Foundation's agreement, engage the selected firm. This payment is a pass-through cost, and Vacuumlabs retains no portion of it. Once the agreement with the audit firm is finalized, Vacuumlabs will invoice for the audit payment, equal to the audit cost and not exceeding the 300,000 CC cap, during Milestone 3. **Audit costs are not gated by the adoption gates on Milestone 3.** Payment becomes due once Milestone 2 is accepted and the agreement with the audit firm is finalized during Milestone 3. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
 
 > Note: The percentage figures denote each amount's percentage of the maximum total amount receivable by Vacuumlabs, i.e., 1,890,000 CC, excluding the audit costs.
+
+Passing the Adoption Gate COMPLETELY is required to complete each milestone that contains one.
+
+If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met within the gate based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone. **M2 and M3 will be paid out only when their respective adoption gates are fully met.**
+
+If an adoption gate is not fully met by its deadline, the project halts at the end of that milestone. The Foundation is not liable for that milestone's funding or for any subsequent milestone, including the Milestone 4 maintenance tranches. Payment for the individual adoption events already evidenced within the gate remains due as set out above, and audit costs already committed under a Foundation approved quote remain payable as a pass-through cost.
+On halt, Vacuumlabs will completely transfer the work completed upto that milestone, and the respository ownership to the successor of the Foundation's choice.
+The Foundation may instead elect, at its sole discretion and in writing, to continue the remaining milestones with Vacuumlabs despite the unmet gate. In that case the affected milestone is treated as complete on its technical deliverables alone and its technical funding becomes payable, the unearned portion of that gate's adoption amount does not become payable, and the remaining milestones proceed on their stated terms.
 
 ### Payment Breakdown by Milestone
 The total funding for each milestone consists of costs for technical delivery and adoption events associated with the respective milestone.
@@ -255,7 +263,7 @@ Payment upon Committee acceptance of the Milestone 1 deliverables, including the
 
 #### Milestone 2: TestNet Validation and Independent Evaluation
 **Total Funding:** 300,000 CC **(15.9%)** (Including Adoption Amount)
-Payment upon Committee acceptance of the TestNet validation evidence, external technical evaluations, and documented dispositions of evaluation feedback.
+Payment upon Committee acceptance of the TestNet validation evidence, external technical evaluations, and documented dispositions of evaluation feedback, and completion of Adoption gate criteras within their respective deadline.
 
 **Adoption Amount:** Upto 200,000 CC **(10.6%)**
 
@@ -269,7 +277,7 @@ Payment upon Committee acceptance of the TestNet validation evidence, external t
 
 **Total Funding:** 320,000 CC **(16.9%)** (Including Adoption Amount)
 
-Payment upon Committee acceptance of the Milestone 3 deliverables, including remediation of review findings, final security and operational documentation, standards candidate presentation, and CIP submission if supported by the relevant SIGs and champion.
+Payment upon Committee acceptance of the Milestone 3 deliverables, including remediation of review findings, final security and operational documentation, standards candidate presentation, and CIP submission if supported by the relevant SIGs and champion, and completion of Adoption gate crtieras within their respective deadline.
 
 **Adoption Amount:** Upto 200,000 CC **(10.6%)**
 
@@ -278,7 +286,7 @@ Payment upon Committee acceptance of the Milestone 3 deliverables, including rem
 
 **Adoption Gate Deadline:** 6 months from the beginning of Milestone 3.
 
-**Independent security review funding:** separate Committee approved quote, submitted once the implementation stabilizes.
+**Independent security review funding:** separate Committee approved quote, submitted once the implementation stabilizes, during Milestone 3.
 
 #### Milestone 4: Maintenance and Compatibility Support
 **Total Funding:** 200,000 CC **(10.6%)**
@@ -299,11 +307,7 @@ The remaining 400,000 CC of the 800,000 CC adoption cap covers:
 - CIP Draft created and number assigned.
 - CIP Merged.
 
-**Deadline for claim:** End of Milestone 4.
-
-Passing the Adoption Gate COMPLETELY is required to complete each milestone that contains an adoption gate.
-
-If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met within the gate based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone. **M2 and M3 will be paid out only when their respective adoption gates are fully met.**
+**Deadline for claim:** End of Milestone 4. Vacuumlabs can claim this at any point from project commencement to the end of Milestone 4 date.
 
 ### Adoption Based Milestones
 
@@ -333,7 +337,7 @@ A qualified adopter is an organization, other than Vacuumlabs and our affiliates
 
 **Tiers.** Pilot tier means TestNet, or a production environment restricted to users internal to the adopting organization. Production tier means Mainnet, or a production environment serving users external to the adopting organization.
 
-**Does not qualify.** Letters of intent, memoranda of understanding, and stated plans to adopt. Forks or clones with no operating deployment. Evaluation only engagement, which is funded under Milestone 2 and cannot be claimed again here. Use by the implementing entity or its affiliates.
+**Does not qualify.** Letters of intent, memoranda of understanding, and stated plans to adopt. Forks or clones with no operating deployment. Use by the implementing entity or its affiliates.
 
 **Client work disclosure.** Where the implementing entity is engaged commercially by the adopting organization, the engagement is disclosed to the Committee at the time of claim and the adopter's confirmation is provided independently by the adopter. The Committee may decline a claim on this basis.
 
