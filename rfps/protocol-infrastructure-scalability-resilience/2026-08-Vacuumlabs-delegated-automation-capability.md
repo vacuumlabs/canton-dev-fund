@@ -305,7 +305,7 @@ Project-specific acceptance conditions are:
 
 **Maximum Funding Request:** 2,190,000 CC
 
-890,000 CC Development work **(47.1%)** + 200,000 CC Maintenance: **(10.6%)** + up to 800,000 CC **(42.3%)** CC for adoption based milestone + up to 300,000 CC (Ring fenced) for Independent Security Audit
+890,000 CC Development work **(47.1%)** + 200,000 CC Maintenance: **(10.6%)** + up to 800,000 CC **(42.3%)** for adoption based milestone + up to 300,000 CC (Ring fenced) for Independent Security Audit
 
 Funding for an independent security audit is capped at 300,000 CC. Vacuumlabs will evaluate quotations from multiple audit firms and, subject to the Canton Foundation's agreement, engage the selected firm. This payment is a pass-through cost, and Vacuumlabs retains no portion of it. Once the agreement with the audit firm is finalized, Vacuumlabs will invoice for the audit payment, equal to the audit cost and not exceeding the 300,000 CC cap, during Milestone 3. **Audit costs are not gated by the adoption gates on Milestone 3.** Payment becomes due once Milestone 2 is accepted and the agreement with the audit firm is finalized during Milestone 3. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
 
