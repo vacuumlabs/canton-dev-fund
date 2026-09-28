@@ -211,8 +211,8 @@ Existing applications can integrate with the authorization layer by implementing
 
 **Adoption Gate:**
 
-- 2 out of 3 organizations qualifying at Pilot Tier (row 1a), per the [Adoption Based Milestones table](#adoption-based-milestones).
-- 2 independent conformance kit runs (row 2), per the [Adoption Based Milestones table](#adoption-based-milestones).
+- 2 out of 3 organizations qualifying at Pilot Tier (row M2a), per the [Adoption Based Milestones table](#adoption-based-milestones).
+- 2 independent conformance kit runs (row M2b), per the [Adoption Based Milestones table](#adoption-based-milestones).
 
 **Adoption Gate Deadline:** 6 months from the beginning of Milestone 2.
 
@@ -238,7 +238,7 @@ Existing applications can integrate with the authorization layer by implementing
 
 **Adoption Gate:**
 
-- 2 of 3 organizations qualifying at Production Tier (row 1b), per the [Adoption Based Milestones table](#adoption-based-milestones).
+- 2 of 3 organizations qualifying at Production Tier (row M3a), per the [Adoption Based Milestones table](#adoption-based-milestones).
 
 **Adoption Gate Deadline:** 6 months from the beginning of Milestone 3.
 
@@ -323,8 +323,8 @@ Payment upon Committee acceptance of the TestNet validation evidence, external t
 
 **Adoption Gate:**
 
-- 2 of 3 organizations qualifying at Pilot Tier (row 1a, **50,000 CC** each) as per the [Adoption Based Milestones table](#adoption-based-milestones).
-- 2 independent conformance kit runs (row 2, **50,000 CC** each), per the [Adoption Based Milestones table](#adoption-based-milestones).
+- 2 of 3 organizations qualifying at Pilot Tier (row M2a, **50,000 CC** each) as per the [Adoption Based Milestones table](#adoption-based-milestones).
+- 2 independent conformance kit runs (row M2b, **50,000 CC** each), per the [Adoption Based Milestones table](#adoption-based-milestones).
 
 **Adoption Gate Deadline:** 6 months from the beginning of Milestone 2.
 
@@ -338,7 +338,7 @@ Payment upon Committee acceptance of the Milestone 3 deliverables, including rem
 
 **Adoption Gate**
 
-- 2 of 3 organizations qualifying at Production Tier (row 1b, 100,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones).
+- 2 of 3 organizations qualifying at Production Tier (row M3a, 100,000 CC each), per the [Adoption Based Milestones table](#adoption-based-milestones).
 
 **Adoption Gate Deadline:** 6 months from the beginning of Milestone 3.
 
@@ -374,15 +374,15 @@ If the project halts before the end of Milestone 4, any adoption event in this r
 
 A detailed breakdown on how we have priced the adoption milestones.
 
-| #   | Adoption Milestone                                                                                                                                                    | Payment Each | Cap               | Maximum        | Evidence required                                                                                                                                                                                                                                                                                                                     |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1a  | Adoption on pilot tier                                                                                                                                                | 50,000 CC    | 3                 | 150,000 CC     | Dependency proof resolving to a package identity in the published package manifest, plus the DAR hash. A runner adoption report covering the qualifying window, listing execution counts, rejections, revocations, package identities in use, and the operator party identifier. The adopter's written confirmation to the Committee. |
-| 1b  | Qualified adopter, production tier                                                                                                                                    | 100,000 CC   | 3                 | 300,000 CC     | As for row 1a.                                                                                                                                                                                                                                                                                                                        |
-| 2   | Independent conformance: a third party adapter or an independently implemented runner passes the published conformance test kit                                       | 50,000 CC    | 2                 | 100,000 CC     | Machine readable conformance kit output recording kit version, package identities under test, and per case results, together with a public continuous integration run the Committee can reproduce.                                                                                                                                    |
-| 3   | Downstream specification reuse: a published CIP, standard, or Foundation funded reference authored by another team normatively references the authorization interface | 100,000 CC   | 1                 | 100,000 CC     | The published document, with the normative reference identified.                                                                                                                                                                                                                                                                      |
-| 4a  | CIP assigned a number and accepted as Draft in the Canton Foundation CIP repository                                                                                   | 50,000 CC    | 1 (one time only) | 50,000 CC      | Public state of the Canton Foundation CIP repository.                                                                                                                                                                                                                                                                                 |
-| 4b  | CIP merged                                                                                                                                                            | 100,000 CC   | 1 (one time only) | 100,000 CC     | Public state of the Canton Foundation CIP repository.                                                                                                                                                                                                                                                                                 |
-|     | **Aggregate cap across all adoption milestones**                                                                                                                      |              |                   | **800,000 CC** |                                                                                                                                                                                                                                                                                                                                       |
+| Row    | Adoption Milestone                                                                                                                                                    | Payment Each | Cap               | Maximum        | Evidence required                                                                                                                                                                                                                                                                                                                     |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| M2a    | Adoption on pilot tier                                                                                                                                                | 50,000 CC    | 3                 | 150,000 CC     | Dependency proof resolving to a package identity in the published package manifest, plus the DAR hash. A runner adoption report covering the qualifying window, listing execution counts, rejections, revocations, package identities in use, and the operator party identifier. The adopter's written confirmation to the Committee. |
+| M2b    | Independent conformance: a third party adapter or an independently implemented runner passes the published conformance test kit                                       | 50,000 CC    | 2                 | 100,000 CC     | Machine readable conformance kit output recording kit version, package identities under test, and per case results, together with a public continuous integration run the Committee can reproduce.                                                                                                                                    |
+| M3a    | Qualified adopter, production tier                                                                                                                                    | 100,000 CC   | 3                 | 300,000 CC     | As for row M2a.                                                                                                                                                                                                                                                                                                                        |
+| M3b    | Downstream specification reuse: a published CIP, standard, or Foundation funded reference authored by another team normatively references the authorization interface | 100,000 CC   | 1                 | 100,000 CC     | The published document, with the normative reference identified.                                                                                                                                                                                                                                                                      |
+| M3cip1 | CIP assigned a number and accepted as Draft in the Canton Foundation CIP repository                                                                                   | 50,000 CC    | 1 (one time only) | 50,000 CC      | Public state of the Canton Foundation CIP repository.                                                                                                                                                                                                                                                                                 |
+| M3cip2 | CIP merged                                                                                                                                                            | 100,000 CC   | 1 (one time only) | 100,000 CC     | Public state of the Canton Foundation CIP repository.                                                                                                                                                                                                                                                                                 |
+|        | **Aggregate cap across all adoption milestones**                                                                                                                      |              |                   | **800,000 CC** |                                                                                                                                                                                                                                                                                                                                       |
 
 #### Qualified adopter
 
