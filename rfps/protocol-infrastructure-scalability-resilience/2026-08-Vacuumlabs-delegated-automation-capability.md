@@ -305,10 +305,6 @@ Funding for an independent security audit is capped at 300,000 CC. Vacuumlabs wi
 
 If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met within the gate based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone. **M2 and M3 will be paid out only when their respective adoption gates are fully met.**
 
-If an adoption gate is not fully met by its deadline, the project halts at the end of that milestone. The Foundation is not liable for that milestone's funding or for any subsequent milestone, including the Milestone 4 maintenance tranches. Payment for the individual adoption events already evidenced within the gate remains due as set out above, and audit costs already committed under a Foundation approved quote remain payable as a pass-through cost.
-On halt, Vacuumlabs will completely transfer the work completed upto that milestone, and the respository ownership to the successor of the Foundation's choice.
-The Foundation may instead elect, at its sole discretion and in writing, to continue the remaining milestones with Vacuumlabs despite the unmet gate. In that case the affected milestone is treated as complete on its technical deliverables alone and its technical funding becomes payable, the unearned portion of that gate's adoption amount does not become payable, and the remaining milestones proceed on their stated terms.
-
 ### Payment Breakdown by Milestone
 
 The total funding for each milestone consists of costs for technical delivery and adoption events associated with the respective milestone.
@@ -388,22 +384,14 @@ A detailed breakdown on how we have priced the adoption milestones.
 | 4b  | CIP merged                                                                                                                                                            | 100,000 CC   | 1 (one time only) | 100,000 CC     | Public state of the Canton Foundation CIP repository.                                                                                                                                                                                                                                                                                 |
 |     | **Aggregate cap across all adoption milestones**                                                                                                                      |              |                   | **800,000 CC** |                                                                                                                                                                                                                                                                                                                                       |
 
-**Disclosure of rows 1a and 1b evidence.** The adopter provides this evidence either publicly with the adopter's consent, or privately to the Canton Foundation under confidentiality. In the confidential case, the Foundation confirms qualification to the Committee.
-
 #### Qualified adopter
 
 A qualified adopter is an organization, other than Vacuumlabs and our affiliates, that has:
 
-1. an adapter template implementing the published Authorization interface, with the dependency resolving to a package identity listed in the project's published package manifest.
-2. a deployment executing that adapter through a runner acting as an operator party distinct from any principal party.
-3. at least 20 successful Execute transactions across at least 3 consecutive days, including an attempt rejected by an on ledger authorization constraint or at least one principal initiated revocation
-4. written confirmation from a named technical contact at the adopting organization, addressed to the Tech & Ops Committee.
+1. At least 20 successful Execute transactions across at least 3 consecutive days, including an attempt rejected by an on ledger authorization constraint or at least one principal initiated revocation
+2. Written confirmation from a named technical contact at the adopting organization, addressed to the Tech & Ops Committee.
 
 **Tiers.** Pilot tier means TestNet, or a production environment restricted to users internal to the adopting organization. Production tier means Mainnet, or a production environment serving users external to the adopting organization.
-
-**Does not qualify.** Letters of intent, memoranda of understanding, and stated plans to adopt. Forks or clones with no operating deployment. Use by the implementing entity or its affiliates.
-
-**Client work disclosure.** Where the implementing entity is engaged commercially by the adopting organization, the engagement is disclosed to the Committee at the time of claim and the adopter's confirmation is provided independently by the adopter. The Committee may decline a claim on this basis.
 
 The project will publish a package manifest at Milestone 1 recording, for each release, the package name, version, package identity, and DAR SHA-256. That manifest is the binding artifact for determining whether a claimed integration uses the published authorization package.
 
@@ -417,7 +405,6 @@ Upon release, the implementing entity will collaborate with the Foundation on:
 
 - Announcement coordination.
 - A technical blog explaining the security model and lessons from TestNet operation and external evaluation.
-- A public summary of external evaluation feedback and resulting design changes, with evaluator attribution only where approved.
 - Promotion through the relevant SIGs and Canton developer channels.
 
 ## Motivation
