@@ -56,6 +56,13 @@ Each authorization will provide two core operations:
 - `Execute`, controlled by the Operator, which checks all on ledger constraints and invokes the typed target action and
 - `Revoke`, controlled by the Principal, which terminates the authorization by archiving the contract.
 
+Each authorization template will also define an execution eligibility check that must pass before Execute invokes the target action. The check combines two sets of validations:
+
+- the standard authorization grant validations, such as validity window, expiry, execution count, and cooldown period and
+- any custom validations the application defines for its use case, such as value limits, target state requirements, or other business rules.
+
+The check returns a boolean and Execute proceeds only when the result is true.
+
 The principal will be a signatory of the authorization contract and the operator will be an observer and the controller of Execute. The authorization cannot bypass any authority required from other target contract parties, and can only authorize actions on the user's behalf, to be performed by the party the authorization is granted to.
 
 The initial release will use one authorization per typed action, for a single party operator and single party principal. It will not use one broad contract containing an arbitrary list of unrelated methods. This keeps grants inspectable, revocable, and compatible with Daml's static type system.
@@ -117,6 +124,7 @@ The implementation will include:
 
 - principal controlled revocation
 - validity windows, execution count limits, interval limits, and typed app limits
+- an on ledger execution eligibility check that combines grant validations with application defined custom validations before Execute proceeds
 - no arbitrary code execution or method name dispatch
 - consuming state transitions to prevent two successful executions from the same authorization version
 - command deduplication and idempotent retry behavior
