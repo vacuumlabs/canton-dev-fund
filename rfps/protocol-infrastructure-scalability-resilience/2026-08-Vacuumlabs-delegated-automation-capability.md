@@ -202,7 +202,7 @@ Existing applications can integrate with the authorization layer by implementing
 - Public TestNet deployment of the reference implementation.
 - Configure and validate representative automation jobs covering both scheduled and ledger visible triggers.
 - Operate the reference deployment on TestNet for at least seven consecutive days and collect execution evidence.
-- Validate revocation and at least one execution rejected by an on ledger authorization constraint.
+- Validate revocation and an execution rejected by an on ledger authorization constraint.
 - At least two external Canton application teams or ecosystem builders actively evaluate the public TestNet deployment or codebase.
 - Collect documented feedback from those evaluations covering the authorization model, adapter integration boundary, visibility requirements, and operational usability.
 - Incorporate applicable evaluation findings into the implementation, documentation, and specification, with dispositions recorded for feedback not incorporated.
@@ -232,7 +232,7 @@ Existing applications can integrate with the authorization layer by implementing
 - Finalize and present the standards candidate to the relevant SIGs.
 - If supported, prepare and submit the initial CIP pull request.
 - Address reasonable CIP editor, SIG, and community technical feedback received during the funded project period.
-- Independent security review: The reviewer or firm and the review scope must be approved by the Committee. The external review cost will be paid separately against a Committee approved quote once the implementation scope is stable. The review will cover the Daml authorization package, reference adapters, runner authority and credential model, replay and concurrency handling, visibility assumptions, revocation races, and operational failure modes.
+- Independent security review: The external review cost will be paid separately against a Committee approved quote once the implementation scope is stable. The review will cover the Daml authorization package, reference adapters, runner authority and credential model, replay and concurrency handling, visibility assumptions, revocation races, and operational failure modes.
 
 **Ecosystem value:** Converts implementation, TestNet, and external evaluation evidence into an independently reviewed, reusable standards candidate that the Canton ecosystem can evaluate for broader adoption.
 
@@ -286,7 +286,7 @@ Project-specific acceptance conditions are:
 - The implementation contains no arbitrary method-name dispatch or execution of user-supplied code.
 - Two concurrent attempts against the same active authorization version cannot both produce a successful state transition.
 - The three reference adapter implementations and specified positive, negative, and conformance tests pass on the supported Canton and Daml versions documented by the project.
-- The reference implementation demonstrates end to end operation on TestNet over at least seven consecutive days using both scheduled and ledger visible triggers, including retry, deduplication, revocation, stale state handling, and at least one execution rejected by an on ledger authorization constraint.
+- The reference implementation demonstrates end to end operation on TestNet over at least seven consecutive days using both scheduled and ledger visible triggers, including retry, deduplication, revocation, stale state handling, and an execution rejected by an on ledger authorization constraint.
 - Documented technical evaluations are obtained from at least two external Canton application teams or ecosystem builders, covering the public TestNet deployment or codebase. Evaluation feedback is incorporated into the implementation, documentation, or specification, or dispositioned with rationale.
 - The independent security review has no unresolved Critical or High severity findings at final acceptance, unless explicitly accepted by the Committee.
 - Source code, tests, specification, documentation, and issue tracking are publicly available under Apache 2.0 or a Committee-approved equivalent.
@@ -302,8 +302,6 @@ Project-specific acceptance conditions are:
 Funding for an independent security audit is capped at 300,000 CC. Vacuumlabs will evaluate quotations from multiple audit firms and, subject to the Canton Foundation's agreement, engage the selected firm. This payment is a pass-through cost, and Vacuumlabs retains no portion of it. Once the agreement with the audit firm is finalized, Vacuumlabs will invoice for the audit payment, equal to the audit cost and not exceeding the 300,000 CC cap, during Milestone 3. **Audit costs are not gated by the adoption gates on Milestone 3.** Payment becomes due once Milestone 2 is accepted and the agreement with the audit firm is finalized during Milestone 3. The Canton Foundation may pay this amount either to Vacuumlabs or directly to the audit firm.
 
 > Note: The percentage figures denote each amount's percentage of the maximum total amount receivable by Vacuumlabs, i.e., 1,890,000 CC, excluding the audit costs.
-
-Passing the Adoption Gate COMPLETELY is required to complete each milestone that contains one.
 
 If the Adoption Gate is only partly met, the Foundation pays only for the adoption events met within the gate based on the Adoptions milestones as mentioned in the [Adoption Based Milestones table](#adoption-based-milestones) below, and not for the milestone. **M2 and M3 will be paid out only when their respective adoption gates are fully met.**
 
@@ -398,7 +396,7 @@ A qualified adopter is an organization, other than Vacuumlabs and our affiliates
 
 1. an adapter template implementing the published Authorization interface, with the dependency resolving to a package identity listed in the project's published package manifest.
 2. a deployment executing that adapter through a runner acting as an operator party distinct from any principal party.
-3. at least 20 successful Execute transactions across at least 3 consecutive days, including at least one attempt rejected by an on ledger authorization constraint or at least one principal initiated revocation
+3. at least 20 successful Execute transactions across at least 3 consecutive days, including an attempt rejected by an on ledger authorization constraint or at least one principal initiated revocation
 4. written confirmation from a named technical contact at the adopting organization, addressed to the Tech & Ops Committee.
 
 **Tiers.** Pilot tier means TestNet, or a production environment restricted to users internal to the adopting organization. Production tier means Mainnet, or a production environment serving users external to the adopting organization.
@@ -432,7 +430,7 @@ The lack of shared infrastructure creates three ecosystem costs:
 - each app must independently build scheduling, retries, deduplication, monitoring, revocation handling, and incident procedures.
 
 The public value is not a hosted automation business. It is a reusable security boundary and reference implementation that any Canton application or organization can self host, operate through its application infrastructure, or use through a service provider according to its privacy and operational requirements.
-There is no reliable public census from which to claim a percentage of Canton applications that require automation. This proposal therefore avoids an unsupported market share estimate and uses verifiable TestNet operation and independent external evaluation instead. The funded target is a sustained reference TestNet deployment evaluated by at least two independent Canton application teams or ecosystem builders, together with a public package that additional teams can evaluate without one off implementation support.
+There is no reliable public census from which to claim a percentage of Canton applications that require automation, so this proposal avoids an unsupported market share estimate. Technical success is demonstrated through the reusable implementation, TestNet operation, independent evaluation, conformance testing, and security review. Ecosystem success is measured separately through verifiable third party Pilot and Production adoption, independent conformance, downstream specification reuse, and standards progression. The proposal therefore ties continued project progression and a substantial portion of funding to demonstrated ecosystem uptake rather than projected demand.
 
 ## Rationale
 
